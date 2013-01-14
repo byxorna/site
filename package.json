@@ -1,0 +1,22 @@
+{
+  "name": "Byxor.na",
+  "version": "0.0.1",
+  "description": "Gabe Conradi's website",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/byxorna/site.git"
+  },
+  "dependencies": {
+    "express": "3.x",
+    "jade": "0.x",
+    "underscore": "1.x"
+  },
+  "author": "Gabe Conradi",
+  "license": "BSD",
+  "readmeFilename": "README.md",
+  "gitHead": "1c529c616996ee7a33cf145abc8cc078592a6916"
+}
