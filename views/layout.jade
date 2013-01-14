@@ -5,7 +5,19 @@ html
     link(rel='stylesheet', href='/stylesheets/style.css')
     link(rel='stylesheet', href='/stylesheets/bootstrap.css')
   body
-    block content
+    div.navbar.navbar-fixed-top.navbar-inverse
+      div.navbar-inner
+        div.container
+          a.brand(href='#') Byxor.na
+          ul.nav
+            //li
+              //a(href='#test') Test
+            //li.dropdown
+              //a.dropdown-toggle(href='#',data-toggle='dropdown') Dropdown
+              //  b.caret
+              //ul.dropdown-menu
+    div.container
+      block content
     script(src='/javascripts/jquery-1.8.3.min.js')
     script(src='/javascripts/bootstrap.min.js')
     script(src='/javascripts/underscore-min.js')
