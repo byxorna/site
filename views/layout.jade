@@ -2,22 +2,32 @@ doctype 5
 html
   head
     title= title
+    //meta(name='viewport' content='width=device-width, initial-scale=1.0')
     link(rel='stylesheet', href='/stylesheets/style.css')
     link(rel='stylesheet', href='/stylesheets/bootstrap.css')
+    link(rel='stylesheet', href='/stylesheets/bootstrap-responsive.css')
   body
     div.navbar.navbar-fixed-top.navbar-inverse
       div.navbar-inner
         div.container
-          a.brand(href='#') Byxor.na
+          a.brand(href='/') byxor.na
           ul.nav
-            //li
-              //a(href='#test') Test
-            //li.dropdown
-              //a.dropdown-toggle(href='#',data-toggle='dropdown') Dropdown
-              //  b.caret
-              //ul.dropdown-menu
+            li.dropdown
+              a.dropdown-toggle(href='#',data-toggle='dropdown') Dropdown
+                b.caret
+              ul.dropdown-menu
+            li
+              a(href='/about') About
     div.container
       block content
+    hr
+    footer
+      div.container
+        div.row
+          div.span2.offset5
+            p.muted.
+              © Gabe Conradi 2013
+
     script(src='/javascripts/jquery-1.8.3.min.js')
     script(src='/javascripts/bootstrap.min.js')
     script(src='/javascripts/underscore-min.js')

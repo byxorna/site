@@ -6,3 +6,21 @@ body {
 a {
   color: #00B7FF;
 }
+
+.logo {
+  height:35px;
+  width:35px;
+  background-size:35px;
+}
+.logo.twitter {
+  background-image:url('/images/twitter-bird-light-bgs.png');
+}
+.logo.youtube {
+  background-image:url('/images/yt-brand-standard-logo-95x40.png');
+}
+.logo.github {
+  height:100px;
+  width:100px;
+  background-image:url('/images/github-logo-transparent.png');
+
+}
