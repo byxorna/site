@@ -8,19 +8,13 @@ a {
 }
 
 .logo {
-  height:35px;
-  width:35px;
-  background-size:35px;
+  height:40px;
+  width:40px;
 }
-.logo.twitter {
-  background-image:url('/images/twitter-bird-light-bgs.png');
+.buffer {
+  margin:70px;
 }
-.logo.youtube {
-  background-image:url('/images/yt-brand-standard-logo-95x40.png');
+.marketing {
+  text-align:center;
 }
-.logo.github {
-  height:100px;
-  width:100px;
-  background-image:url('/images/github-logo-transparent.png');
 
-}
