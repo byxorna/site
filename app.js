@@ -28,7 +28,8 @@ app.configure('development', function(){
 });
 
 app.get('/', routes.index);
-app.get('/about', routes.about);
+app.get('/about/me', routes.about_me);
+app.get('/projects', routes.projects);
 app.get('/resume', routes.resume);
 
 http.createServer(app).listen(app.get('port'), function(){

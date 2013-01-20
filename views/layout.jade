@@ -2,22 +2,33 @@ doctype 5
 html
   head
     title= title
-    //meta(name='viewport' content='width=device-width, initial-scale=1.0')
+    meta(name='viewport',content='width=device-width, initial-scale=1.0')
     link(rel='stylesheet', href='/stylesheets/style.css')
     link(rel='stylesheet', href='/stylesheets/bootstrap.css')
-    //link(rel='stylesheet', href='/stylesheets/bootstrap-responsive.css')
+    link(rel='stylesheet', href='/stylesheets/bootstrap-responsive.css')
+    script(src='/javascripts/jquery-1.8.3.min.js')
+    script(src='/javascripts/bootstrap.min.js')
+    script(src='/javascripts/underscore-min.js')
+    script(src='/javascripts/backbone-min.js')
+    script(src='/javascripts/application.js')
+
   body
     div.navbar.navbar-fixed-top.navbar-inverse
       div.navbar-inner
         div.container
+          a.btn.btn-navbar(data-toggle='collapse',data-target='.nav-collapse')
+            span Menu
           a.brand(href='/') byxor.na
-          ul.nav.pull-right
-            li.dropdown
-              a.dropdown-toggle(href='#',data-toggle='dropdown') Dropdown
-                b.caret
-              ul.dropdown-menu
-            li
-              a(href='/about') About
+          div.nav-collapse.collapse
+            //ul.nav.pull-right
+            ul.nav.pull-right
+              li.dropdown
+                a.dropdown-toggle(href='#',data-toggle='dropdown') Dropdown
+                  b.caret
+                ul.dropdown-menu
+              li
+                a(href='/about/me') About
+
     div.container
       block content
     hr
@@ -27,10 +38,4 @@ html
           div.span2.offset5
             p.muted.
               © Gabe Conradi 2013
-
-    script(src='/javascripts/jquery-1.8.3.min.js')
-    script(src='/javascripts/bootstrap.min.js')
-    script(src='/javascripts/underscore-min.js')
-    script(src='/javascripts/backbone-min.js')
-    script(src='/javascripts/application.js')
 

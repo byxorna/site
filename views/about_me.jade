@@ -1,0 +1,162 @@
+extends layout
+
+block content
+
+  div#info-block(style='padding-top:45px;')
+    div.marketing
+      h1 My name is Gabe
+      p.lead I love learning about technology, programming, Linux, filesystems, cars. I am currently a Unix Systems Engineer at 
+        a(href="http://www.factset.com") FactSet
+        .
+        
+
+    hr.buffer
+    div
+      h1 Tech projects
+        small  Yea buddy!
+      p Webscale, cloudscale, buzz words.
+
+    hr.buffer
+    div
+      img.lead-image.pull-left(src='/images/ej257_pistons.jpg')
+      h1.pagination-right Car Projects
+      p.lead.pagination-right.muted Flat 4 power!
+      p.pagination-right I am a huge Subaru fan. I am on 
+        a(href='http://www.iwsti.com/forums/members/66931.html') IWSTI
+        |, 
+        a(href='http://forums.nasioc.com/forums/member.php?u=231967') Nasioc
+        |, and a handful of regional northeastern Subaru forums. I AutoX with FCSCC, and am planning on tracking my wagon at Lime Rock and hitting the strip a few times once the build is complete. I do all my own maintenance and install all my own mods, cause, you know... learning is awesome!
+
+    div.buffer
+    div.row
+      div.span6
+        h2 2004 Subaru PSM WRX 
+        h4.muted Daily Driver
+        p Tuned by Chris @ EFI Logics (RIP), to 297whp/254wtq at 20.5 psi. Heres a link to my 
+          a(href='http://www.efilogics.com/dyno/index.php?gb=0&hp=1&torque=1&boost=1&rpm=1&sl=1&sln=1&sat=0&cb=0&dgr=1&smm=0&sg=1&runid1=1600&rgb1=000000255') EFI Dyno Chart
+          |  There are 
+          i way
+          |  more mods on this car than listed, but this is the gist of it. 
+        h5 Parts list
+        ul
+          li Stock internals EJ205
+          li 750cc DeatschWerks topfeed injectors
+          li Walbro 255lph pump
+          li Blousch TD05H 16G-XT turbo, internally gated
+          li Xccelleration TMIC
+          li SPT short ram intake
+          li Invidia catless downpipe, full 3" exhaust
+          li Grimmspeed EBCS
+          li Sway bars, endlinks, mounts
+          li 215/55/16 Star Specs
+          li 04 STi struts, EPIC springs
+          li Grimmspeed phenolic spacers
+          li Custom boost actuated intercooler sprayer
+          li Custom ABS kill switch
+        img(src='/images/dyno_2004_wrx_16g.png')
+      div.span6
+        h2 2005 Subaru WRB Wagon WRX
+        h4.muted Track Beast
+        p I bought this rolling chassis in September of 2011 to keep my hands busy. I began accumulating parts slowly, with the eventual goal of making a badass track car. The project is still in progress, but hopefully it will be running in the spring of 2013. Shooting for 400-450 whp on 93 octane, hoping to get 30-40psi out of the turbo.
+        h5 Parts list
+        ul
+          li R180, STi 6sp, Brembos and 5x114.3 hub conversion from an 05
+          li Aluminum lateral links and LCAs from an 06
+          li STi steering rack and crossmember from an 06
+          li Full Race twin scroll header with dual 38mm external wastegates
+          li Garrett GTX3076R 1.06a/r twinscroll turbo
+          li BC BR coilovers
+          li 24mm front+rear Whiteline sways and rear mount, Kartboy solid endlinks
+          li Every bushing that TiC and Kartboy makes for the STi
+          li RE070 225/45/17 right now (R comps soon)
+          li JDM v9 long runner intake manifold
+          li JDM v9 ECU
+          li Fuel system
+            ul
+              li 1100cc topfeed Fuel Injector Clinic injectors
+              li 340lph Aeromotive fuel pump
+              li Aeromotive FPR
+              li Jegs fuel lines, distribution block, and AN fittings
+          li ACT 6 puck XT clutch with flywheel
+          li Koyo aluminum radiator
+          li Fuel rails from Outfront Motorsports with custom fuel rail spacers
+          li Engine
+            ul
+              li 07 EJ257 case, o-ringed Darton sleeves
+              li 07 STi crankshaft
+              li Ross custom pistons, forged for 50psi
+              li Oliver rods
+              li ARP rod, case, and main bolts
+              li ARP 14mm custom helicoiled headstuds
+              li ACL coated race bearings
+              li JDM v7 2.0l heads, intake ports matched to manifold (338cfm intake, 241cfm exhaust)
+              li Ferrea +1mm valves, TI locks, seats, retainers, springs
+              li Custom Kelford 282/280 cams (no AVCS currently)
+              li ATI Superdamper
+              li Cometic headgaskets
+              li 07 oil pump
+              li Greddy timing belt
+              li Hyperflow twinscroll oil pan
+          li Perrin front mount intercooler
+          li Synapse Syncronic BPV
+          li KSTech 73mm cold air intake
+
+
+    hr.buffer
+    div
+      h1.pagination-right This Site
+      p.lead.pagination-right.muted.
+        I support open source software, and you should too.
+      p This site was created partly to keep up with hip new technologies, and partly because I really, really needed to get myself some web presence. The site is written in 
+        a(href="http://nodejs.org/") Node 
+        | with 
+        a(href="http://expressjs.com/") Express
+        |, 
+        a(href="http://jade-lang.com/") Jade
+        |, 
+        a(href="http://twitter.github.com/bootstrap") Bootstrap
+        |, 
+        a(href="http://backbonejs.org/") Backbone
+        |, 
+        a(href="http://underscorejs.org/") Underscore
+        |, and 
+        a(href="http://jquery.com/") jQuery
+        |. This is a playground for me, so the list may change over time. This site is open source as well, check it out 
+        a(href="https://github.com/byxorna/site") on GitHub 
+        | and send me a pull request.
+
+    hr.buffer
+
+
+    div
+      div.span3
+      div.span1
+        a(href="https://github.com/byxorna")
+          img.pull-left.media-object.logo(src='/images/icons/github.png',rel="tooltip",title="Github")
+      div.span1
+        a(href="https://twitter.com/byxorna")
+          img.pull-left.media-object.logo(src='/images/icons/twitter.png',rel="tooltip",title="Twitter")
+      div.span1
+        a(href="https://youtube.com/byxornism")
+          img.pull-left.media-object.logo(src='/images/icons/youtube.png',rel="tooltip",title="YouTube")
+      div.span1
+        a(href="https://plus.google.com/109783898219372090528")
+          img.pull-left.media-object.logo(src='/images/icons/netvibes.png',rel="tooltip",title="Google+")
+      div.span1
+        a(href="https://facebook.com/gabe.conradi")
+          img.pull-left.media-object.logo(src='/images/icons/facebook.png',rel="tooltip",title="Facebook")
+      div.span1
+        a(href="/resume")
+          img.pull-left.media-object.logo(src='/images/accessories-text-editor.svg',rel="tooltip",title="Resume")
+
+
+
+  style
+    img.lead-image {
+      max-height:300px;
+    }
+
+  script
+    $(function(){
+      $('[rel=tooltip]').tooltip();
+    });

@@ -3,6 +3,9 @@
   "version": "0.0.1",
   "description": "Gabe Conradi's website",
   "main": "index.js",
+  "engines": {
+    "node": ">=0.8"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

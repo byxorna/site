@@ -8,13 +8,13 @@ a {
 }
 
 .logo {
-  height:40px;
-  width:40px;
+  height:32px;
+  width:32px;
 }
 .buffer {
-  margin:70px;
+  margin:40px;
+  clear:both;
 }
 .marketing {
   text-align:center;
 }
-
