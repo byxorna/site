@@ -13,11 +13,14 @@ html
     script(src='/javascripts/application.js')
 
   body
-    header.navbar.navbar-fixed-top
+    header.navbar.navbar-fixed-top.navbar-inverse
       div.navbar-inner
         div.container
-          a.btn.btn-navbar(data-toggle='collapse',data-target='.nav-collapse')
-            span Menu
+          //a.btn.btn-navbar(data-toggle='collapse',data-target='.nav-collapse')
+          div.btn.btn-navbar(data-toggle='collapse',data-target='.nav-collapse')
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
           a.brand(href='/') byxor.na
           div.nav-collapse.collapse
             //ul.nav.pull-right
@@ -29,7 +32,8 @@ html
               li
                 a(href='/about/me') About
 
-    div.container(style='max-width:960px;')
+    //(style='max-width:960px;')
+    div.container
       block content
 
     footer

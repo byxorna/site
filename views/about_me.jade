@@ -7,16 +7,27 @@ block content
       h1 My name is Gabe
       p.lead I love technology, programming, Linux, cars, and electronic music that noone has ever heard of. I am currently a Unix Systems Engineer at 
         a(href="http://www.factset.com") FactSet
-        .
+        | . This is a list of a bunch of my projects and interests.
         
+      p.lead
+        a(href='#tech-projects') Tech
+        |  - 
+        a(href='#car-projects') Cars
+        |  - 
+        a(href='#music') Music
+        |  - 
+        a(href='#this-site') This site
+        |  - 
+        a(href='#contact') Contact
 
-    hr.buffer
+
+    hr#tech-projects.buffer
     div
       h1 Tech projects
       p.lead.muted Buzz words go here
       p Technology is a fickle mistress.
 
-    hr.buffer
+    hr#car-projects.buffer
     div
       img.lead-image.pull-left(src='/images/ej257_pistons.jpg')
       h1.pagination-right Car Projects
@@ -53,7 +64,8 @@ block content
           li Grimmspeed phenolic spacers
           li Custom boost actuated intercooler sprayer
           li Custom ABS kill switch
-        img(src='/images/dyno_2004_wrx_16g.png')
+        a(href='http://www.efilogics.com/dyno/index.php?gb=0&hp=1&torque=1&boost=1&rpm=1&sl=1&sln=1&sat=0&cb=0&dgr=1&smm=0&sg=1&runid1=1600&rgb1=000000255')
+          img(src='/images/dyno_2004_wrx_16g.png')
       div.span6
         h2 2005 Subaru WRB Wagon WRX
         h4.muted Track Beast
@@ -101,7 +113,7 @@ block content
           li Synapse Syncronic BPV
           li KSTech 73mm cold air intake
 
-    hr.buffer
+    hr#music.buffer
     div
       h1 Music
       p.lead.muted Uhnn tiss uhnn tiss
@@ -111,7 +123,7 @@ block content
         | . It is really rare to meet people with a similar taste in music, so if you know (and like!) some of these artists, get at me!
 
 
-    hr.buffer
+    hr#this-site.buffer
     div
       h1.pagination-right This Site
       p.lead.pagination-right.muted.
@@ -134,8 +146,10 @@ block content
         a(href="https://github.com/byxorna/site") on GitHub 
         | and send me a pull request.
 
-    hr.buffer
 
+
+
+    hr#contact.buffer
 
     div
       div.span3
