@@ -18,3 +18,19 @@ a {
 .marketing {
   text-align:center;
 }
+footer {
+  padding:30px;
+  margin:40px -50px -50px -50px;
+  min-height:100px;
+  border-top: 1px solid #d4d4d4;
+}
+.navbar {
+  opacity:.95;
+}
+.navbar-inner {
+  background-image:none !important;
+}
+
+
+
+
