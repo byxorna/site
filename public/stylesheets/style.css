@@ -8,8 +8,9 @@ a {
 }
 
 .logo {
-  height:32px;
-  width:32px;
+  background:#222;
+  height:48px;
+  width:48px;
 }
 .buffer {
   margin:40px;
