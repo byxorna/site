@@ -1,4 +1,4 @@
 TODO
 ----
 
-* Change font to google web fonts? Proxima Nova?
+* Change font to google web fonts? Proxima Nova? Ubuntu? Droid Sans?
