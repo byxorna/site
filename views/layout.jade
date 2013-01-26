@@ -1,16 +1,17 @@
 doctype 5
 html
   head
-    title= title
-    meta(name='viewport',content='width=device-width, initial-scale=1.0')
-    link(rel='stylesheet', href='/stylesheets/bootstrap.css')
-    link(rel='stylesheet', href='/stylesheets/bootstrap-responsive.css')
-    link(rel='stylesheet', href='/stylesheets/style.css')
-    script(src='/javascripts/jquery-1.8.3.min.js')
-    script(src='/javascripts/bootstrap.min.js')
-    script(src='/javascripts/underscore-min.js')
-    script(src='/javascripts/backbone-min.js')
-    script(src='/javascripts/application.js')
+    block head
+      title= title
+      meta(name='viewport',content='width=device-width, initial-scale=1.0')
+      link(rel='stylesheet', href='/stylesheets/bootstrap.css')
+      link(rel='stylesheet', href='/stylesheets/bootstrap-responsive.css')
+      link(rel='stylesheet', href='/stylesheets/style.css')
+      script(src='/javascripts/jquery-1.8.3.min.js')
+      script(src='/javascripts/bootstrap.min.js')
+      script(src='/javascripts/underscore-min.js')
+      script(src='/javascripts/backbone-min.js')
+      script(src='/javascripts/application.js')
 
   body
     header.navbar.navbar-fixed-top.navbar-inverse
@@ -32,14 +33,15 @@ html
               li
                 a(href='/about/me') About
 
-    //(style='max-width:960px;')
-    div(style='padding-top:45px;')
+    //(style='max-width:960px;')(style='padding-top:45px;')
+    div
       block content
 
     footer
-      div.container
-        div.row
-          div.span2.offset5
-            p.muted.
-              © Gabe Conradi 2013
+      block footer
+        div.container
+          div.row
+            div.span2.offset5
+              p.muted.
+                © Gabe Conradi 2013
 
