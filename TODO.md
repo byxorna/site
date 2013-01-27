@@ -2,4 +2,5 @@ TODO
 ----
 
 * Change font to google web fonts? Proxima Nova? Ubuntu? Droid Sans?
-* implement a file based blogging engine (with markdown rendering)
+* get change to poet merged to expose options to middleware (postsPerPage)
+* implement RSS feed for poet
