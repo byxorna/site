@@ -7,10 +7,24 @@ var express = require('express')
   app = express(),
   poet = require('poet')(app);
 
+//TODO this is ghetto, but i dont know how to get poet's postsPerPage
+// to be exposed in its middleware. remove when https://github.com/jsantell/poet/pull/10
+// is merged in
+var postsPerPage = 5;
 poet.set({
-  posts: './posts'
+  posts: './posts',
+  postsPerPage: postsPerPage,
+  routes: {
+    post: '/blog/post/:post',
+    page: '/blog[?page=:page]'
+  }
 })
-  .init(function(){
+  .init(function(locals){
+    // expose postsPerPage thru middleware for proper pagination
+    locals["postsPerPage"] = postsPerPage;
+    locals.postList.forEach(function(post) {
+      //TODO create updated time from mtime?
+    });
   });
 
 app.set('port', process.env.PORT || 3000);
