@@ -1,0 +1,24 @@
+extends layout
+
+block content
+  .container
+    section
+      .page-header
+        h1 Blog
+          small.pull-right Page #{page} of #{getPageCount()}
+            
+        each post in posts
+          div.row
+            div.span12
+              a(href="#{post.url}")
+                h1= post.title
+              small.muted= post.date
+              div.snippet !{post.preview}
+          
+    div
+      if page < getPageCount()
+        p.pagination-right
+          a(href="/blog?page=#{page+1}") Older
+      if page > 1
+        p
+          a(href="/blog?page=#{page-1}") Newer
