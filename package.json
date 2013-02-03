@@ -2,11 +2,11 @@
   "name": "Byxor.na",
   "version": "0.0.1",
   "description": "Gabe Conradi's website",
-  "main": "index.js",
   "engines": {
     "node": ">=0.8"
   },
   "scripts": {
+    "start": "node ./app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -20,7 +20,7 @@
     "poet": "0.x"
   },
   "author": "Gabe Conradi",
-  "license": "BSD",
+  "license": "Apache 2.0",
   "readmeFilename": "README.md",
   "gitHead": "1c529c616996ee7a33cf145abc8cc078592a6916"
 }
