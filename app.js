@@ -5,7 +5,8 @@ var express = require('express')
   http = require('http'),
   path = require('path'),
   app = express(),
-  poet = require('poet')(app);
+  poet = require('poet')(app),
+  moment = require('moment');
 
 //TODO this is ghetto, but i dont know how to get poet's postsPerPage
 // to be exposed in its middleware. remove when https://github.com/jsantell/poet/pull/10
@@ -22,9 +23,7 @@ poet.set({
   .init(function(locals){
     // expose postsPerPage thru middleware for proper pagination
     locals["postsPerPage"] = postsPerPage;
-    locals.postList.forEach(function(post) {
-      //TODO create updated time from mtime?
-    });
+    locals.postList.forEach(function(post) { });
   });
 
 app.set('port', process.env.PORT || 3000);

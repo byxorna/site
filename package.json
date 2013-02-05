@@ -17,7 +17,8 @@
     "express": "3.x",
     "jade": "0.x",
     "underscore": "1.x",
-    "poet": "0.x"
+    "poet": "0.x",
+    "moment": "1.7.x"
   },
   "author": "Gabe Conradi",
   "license": "Apache 2.0",

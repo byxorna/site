@@ -12,7 +12,7 @@ block content
             div.span12
               a(href="#{post.url}")
                 h1= post.title
-              small.muted= post.date
+              a.date.muted(data-alt-date="#{post.date.toString()}", title=post.date.toString())= moment(post.date).fromNow()
               div.snippet !{post.preview}
           
     div
