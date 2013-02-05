@@ -13,6 +13,10 @@ a:hover {
   color:#888;
 }
 
+a.date {
+  cursor:pointer;
+}
+
 .logo {
   background:#222;
   height:48px;
