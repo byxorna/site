@@ -47,5 +47,8 @@ section {
   padding-top:45px;
 }
 
+h1 small.vertical-center {
+  line-height:40px; /* see h1 height */
+}
 
 

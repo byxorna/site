@@ -5,7 +5,7 @@ block content
     section
       .page-header
         h1 Blog
-          small.pull-right Page #{page} of #{getPageCount()}
+          small.pull-right.vertical-center Page #{page} of #{getPageCount()}
             
         each post in posts
           div.row
@@ -16,9 +16,10 @@ block content
               div.snippet !{post.preview}
           
     div
-      if page < getPageCount()
-        p.pagination-right
-          a(href="/blog?page=#{page+1}") Older
-      if page > 1
-        p
-          a(href="/blog?page=#{page-1}") Newer
+      h1
+        if page < getPageCount()
+          small.vertical-center
+            a.muted(href="/blog?page=#{page+1}") < Older
+        if page > 1
+          small.pull-right.vertical-center
+            a.muted(href="/blog?page=#{page-1}") Newer >
