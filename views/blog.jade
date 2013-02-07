@@ -5,21 +5,95 @@ block content
     section
       .page-header
         h1 Blog
-          small.pull-right.vertical-center Page #{page} of #{getPageCount()}
+          small.pull-right.vertical-center#post-count
             
-        each post in posts
-          div.row
-            div.span12
-              a(href="#{post.url}")
-                h1= post.title
-              a.date.muted(data-alt-date="#{post.date.toString()}", title=post.date.toString())= moment(post.date).fromNow()
-              div.snippet !{post.preview}
-          
+        div#posts
     div
-      h1
-        if page < getPageCount()
-          small.vertical-center
-            a.muted(href="/blog?page=#{page+1}") < Older
-        if page > 1
-          small.pull-right.vertical-center
-            a.muted(href="/blog?page=#{page-1}") Newer >
+      h1.pagination-centered
+        //if page < getPageCount()
+        //  small.vertical-center
+        //    a.muted(href="/blog?page=#{page+1}") < Older
+        small
+          a#more-posts(href="#") Load more
+        //if page > 1
+        //  small.pull-right.vertical-center
+        //    a.muted(href="/blog?page=#{page-1}") Newer >
+
+
+block append head
+  script
+    $(function(){
+      var Post = Backbone.Model.extend({});
+      var Posts = Backbone.Collection.extend({
+        model: Post,
+        url: function(){
+          return '/blog/posts?page=' + page;
+        }
+      });
+      var PostView = Backbone.View.extend({
+        // an individual post view
+        template: _.template($('#post-template').html()),
+        render: function(){
+          this.$el.html(this.template(this.model.attributes));
+          return this;
+        }
+      });
+      var PostsView = Backbone.View.extend({
+        // the view of all posts
+        el: $('#posts'),
+        post_count: $('#post-count'),
+        initialize: function(){
+          this.listenTo(posts,'add',this.addPost);
+        },
+        render: function(){
+          this.$el.html('');
+          posts.each(function(post){
+            this.addPost(post);
+          },this);
+          return this;
+        },
+        addPost: function(post){
+          // append the post to our view
+          var view = new PostView({model: post});
+          this.$el.append(view.render().el);
+          this.post_count.text("Latest " + posts.length + " posts");
+        }
+      });
+
+      var page = 1; //start out on the first page
+      var posts = new Posts(!{JSON.stringify(posts)});  //bootstrap in our collection
+      //posts.on('all',function(evt){
+      //  console.log("posts just fired " + evt);
+      //});
+
+      var blog = new PostsView();
+      blog.render();
+
+      $('#more-posts').on('click',function(){
+        //get more posts
+        var collection_size = posts.length;
+        page += 1;
+        posts.fetch({
+          update:true,
+          remove:false,
+          success:function(){
+            if (collection_size == posts.length){
+              $('#more-posts').replaceWith('<span>No older posts found</span>');
+            }
+          },
+          error:function(){
+            //TODO show an error
+          }
+        });
+        return false;
+      });
+    });
+  script(type='text/template')#post-template
+    div.row
+      div.span12
+        a(href!="<%= url %>")
+          h1 <%= title %>
+
+        a.date.muted(data-alt-date!="<%= new Date(date).toString() %>", title!="<%= new Date(date).toString() %>") <%= moment(date).fromNow() %>
+        div.snippet <%= preview %>
+

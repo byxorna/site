@@ -1,5 +1,5 @@
 $(function(){
-  $('.date').on('click',function(evt){
+  $('body').on('click','.date',function(evt){
     // swap dates with data-alt-date on click
     var ctx = $(this);
     var old = ctx.text();

@@ -47,6 +47,7 @@ app.get('/projects', page.projects);
 app.get('/resume', page.resume);
 app.get('/blog', blog.blog_index);
 app.get('/blog/post/:post', blog.post);
+app.get('/blog/posts', blog.posts); // json collection
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log("Express server listening on port " + app.get('port'));
