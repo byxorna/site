@@ -18,10 +18,23 @@ a.date {
 }
 
 .logo {
-  background:#222;
-  height:48px;
-  width:48px;
+  background-color:#333;
+  height:64px;
+  width:64px;
+  border: 1px solid #111;
+  border-color: rgba(17,17,17,0.7);
+  margin-left:20px;
+  display:inline;
+  transition: background-color 0.5s ease-out;
+  -webkit-transition: background-color 0.5s ease-out;
+  -moz-transition: background-color 0.5s ease-out;
+  -o-transition: background-color 0.5s ease-out;
 }
+
+.logo:hover {
+  background-color:#5e5e5e;
+}
+
 .buffer {
   margin:40px;
   clear:both;
