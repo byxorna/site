@@ -4,8 +4,8 @@ exports.index = function(req, res){
 };
 
 // about me
-exports.about_me = function(req, res){
-  res.render('about_me', {title: 'About'});
+exports.about = function(req, res){
+  res.render('about', {title: 'About'});
 };
 
 // resume listing

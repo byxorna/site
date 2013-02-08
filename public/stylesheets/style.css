@@ -25,6 +25,7 @@ a.date {
 .buffer {
   margin:40px;
   clear:both;
+  min-height:1px;
 }
 .marketing {
   text-align:center;

@@ -42,7 +42,7 @@ app.configure('development', function(){
 });
 
 app.get('/', page.index);
-app.get('/about/me', page.about_me);
+app.get('/about', page.about);
 app.get('/projects', page.projects);
 app.get('/resume', page.resume);
 app.get('/blog', blog.blog_index);

@@ -79,6 +79,7 @@ block append head
           success:function(){
             if (collection_size == posts.length){
               $('#more-posts').replaceWith('<span>No older posts found</span>');
+              blog.post_count.text("All " + posts.length + " posts");
             }
           },
           error:function(){
