@@ -18,7 +18,9 @@
     "jade": "0.x",
     "underscore": "1.x",
     "poet": "0.x",
-    "moment": "1.7.x"
+    "moment": "1.7.x",
+    "node-markdown": "0.1.x",
+    "resume": "git://github.com/byxorna/resume.git"
   },
   "author": "Gabe Conradi",
   "license": "Apache 2.0",

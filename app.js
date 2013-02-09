@@ -46,7 +46,7 @@ app.configure('development', function(){
 app.get('/', page.index);
 app.get('/about', page.about);
 app.get('/projects', page.projects);
-app.get('/resume', page.resume);
+app.get('/resume.:format?', page.resume);
 app.get('/blog', blog.blog_index);      // the main blog page, shows list of blog posts (html)
 app.get('/blog/post/:post', blog.post); // get a specific blog post for display (html)
 
