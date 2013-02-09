@@ -2,6 +2,7 @@
 var express = require('express')
   page = require('./routes/index'),
   blog = require('./routes/blog'),
+  blog_api = require('./routes/api/blog'),
   http = require('http'),
   path = require('path'),
   app = express(),
@@ -41,16 +42,19 @@ app.configure('development', function(){
   app.use(express.errorHandler());
 });
 
+// User facing routes (html)
 app.get('/', page.index);
 app.get('/about', page.about);
 app.get('/projects', page.projects);
 app.get('/resume', page.resume);
-app.get('/blog', blog.blog_index);
+app.get('/blog', blog.blog_index);      // the main blog page, shows list of blog posts (html)
 app.get('/blog/post/:post', blog.post); // get a specific blog post for display (html)
+
+// API routes (json)
 // get collection of blog posts
-app.get('/blog/posts', blog.posts); // get blog posts (json)
-app.get('/blog/posts/:from-:to', blog.posts); // get blog posts (json)
-app.get('/blog/posts/:from', blog.posts); // get blog posts (json)
+app.get('/api/blog/posts', blog_api.posts);
+app.get('/api/blog/posts/:from-:to', blog_api.posts);
+app.get('/api/blog/posts/:from', blog_api.posts);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log("Express server listening on port " + app.get('port'));

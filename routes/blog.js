@@ -23,22 +23,3 @@ exports.post = function(req, res){
   }
 };
 
-//exports.posts = function(req, res){
-//  var page = (req.query["page"]-0) || 1;
-//  var postsPerPage = req.poet.postsPerPage;
-//  var lastPost = page*postsPerPage;
-//  res.send(req.poet.getPosts(lastPost - postsPerPage, lastPost));
-//};
-
-// get some posts as json, takes params.from and params.to
-exports.posts = function(req, res){
-  var from = req.params.from-0 || 0;  //default to first post
-  // remember slice(0,3) returns 3 elements, not 4. fix up to to return the correct posts
-  var to = (req.params.to-0)+1 || from+req.poet.postsPerPage; //default return one page
-  if (from > to) {
-    var tmp = from;
-    from = to;
-    to = tmp;
-  }
-  res.send(req.poet.getPosts(from,to));
-};

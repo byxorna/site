@@ -24,7 +24,7 @@ block append head
         fetch_size: #{fetch_size},
         model: Post,
         url: function(){
-          return '/blog/posts/' + this.from + '-' + this.to;
+          return '/api/blog/posts/' + this.from + '-' + this.to;
         }
       });
       var PostView = Backbone.View.extend({
