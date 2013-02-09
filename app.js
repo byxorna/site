@@ -46,8 +46,11 @@ app.get('/about', page.about);
 app.get('/projects', page.projects);
 app.get('/resume', page.resume);
 app.get('/blog', blog.blog_index);
-app.get('/blog/post/:post', blog.post);
-app.get('/blog/posts', blog.posts); // json collection
+app.get('/blog/post/:post', blog.post); // get a specific blog post for display (html)
+// get collection of blog posts
+app.get('/blog/posts', blog.posts); // get blog posts (json)
+app.get('/blog/posts/:from-:to', blog.posts); // get blog posts (json)
+app.get('/blog/posts/:from', blog.posts); // get blog posts (json)
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log("Express server listening on port " + app.get('port'));

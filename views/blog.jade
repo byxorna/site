@@ -10,14 +10,8 @@ block content
         div#posts
     div
       h1.pagination-centered
-        //if page < getPageCount()
-        //  small.vertical-center
-        //    a.muted(href="/blog?page=#{page+1}") < Older
         small
           a#more-posts(href="#") Load more
-        //if page > 1
-        //  small.pull-right.vertical-center
-        //    a.muted(href="/blog?page=#{page-1}") Newer >
 
 
 block append head
@@ -25,9 +19,12 @@ block append head
     $(function(){
       var Post = Backbone.Model.extend({});
       var Posts = Backbone.Collection.extend({
+        from: #{from},
+        to: #{to},
+        fetch_size: #{fetch_size},
         model: Post,
         url: function(){
-          return '/blog/posts?page=' + page;
+          return '/blog/posts/' + this.from + '-' + this.to;
         }
       });
       var PostView = Backbone.View.extend({
@@ -60,19 +57,20 @@ block append head
         }
       });
 
-      var page = 1; //start out on the first page
       var posts = new Posts(!{JSON.stringify(posts)});  //bootstrap in our collection
-      //posts.on('all',function(evt){
-      //  console.log("posts just fired " + evt);
-      //});
 
       var blog = new PostsView();
       blog.render();
 
+      console.log("setting to:" + posts.to + " and from:" + posts.from);
       $('#more-posts').on('click',function(){
         //get more posts
         var collection_size = posts.length;
-        page += 1;
+        var old_from = posts.from;
+        var old_to = posts.to;
+        posts.from = posts.to;
+        posts.to = posts.from + posts.fetch_size;
+        console.log("setting to:" + posts.to + " and from:" + posts.from);
         posts.fetch({
           update:true,
           remove:false,
