@@ -10,22 +10,22 @@ block content
           p.lead I studied Germanic Languages and Computer Science at Washington University in St. Louis, MO. I build and race Subarus, listen to weird music, speak German and some Swedish, complain about technology, geek out about languages and Linux, and love belgian style ales and unfiltered wheat beers. I am currently a Unix Systems Engineer at 
             a(href="http://www.factset.com") FactSet
             | . Here is the rundown on me and my interests.
-          div.row
-            div.span
-              h2
-                a(href='#tech-projects') Tech
-            div.span
-              h2
-                a(href='#car-projects') Cars
-            div.span
-              h2
-                a(href='#music') Music
-            div.span
-              h2
-                a(href='#this-site') This site
-            div.span
-              h2
-                a(href='#contact') Contact
+          div.pagination-centered  
+            span.spaced
+              a(href='#tech-projects')
+                h2.inline Tech
+            span.spaced
+              a(href='#car-projects')
+                h2.inline Cars
+            span.spaced
+              a(href='#music')
+                h2.inline Music
+            span.spaced
+              a(href='#this-site')
+                h2.inline This site
+            span.spaced
+              a(href='#contact')
+                h2.inline Contact
           
         section#tech-projects
           div.page-header
@@ -125,7 +125,6 @@ block content
           div.page-header
             h1 Music
               small  Uhnn tiss uhnn tiss
-          //p.lead.muted Uhnn tiss uhnn tiss
           p I like to think I have a very unique taste in music. I started developing my library in middle school, when I was introduced to Goa and Israeli Trance. From there, (with the help of soulseek) I began to explore into more traditional dance, techno, and ambient. Now I consider my mainstays to be the likes of Orbital, Death in Vegas, Boards of Canada, FSOL, The Herbaliser, Vadim, Chemical Brothers, Meat Beat Manifesto, Amon Tobin, Basement Jaxxx, A Tribe Called Quest, Astral Projection, Astrix, Simian Mobile Disco, Fischerspooner, AK1200, Dieselboy, and a ton
             |  more. Golden age hip hop, electro, ambient, 80s experimental, big beat, DnB and breaks, I love it all. You can find me on 
             a(href='http://www.last.fm/user/gummybearx') Last.fm
@@ -175,29 +174,8 @@ block content
               a(href="/resume")
                 img.img-circle.media-object.logo(src='/images/icons/aboutme/aboutme-64.png',rel="tooltip",title="Resume")
 
-          //.container
-          //  .row
-          //    div
-          //      .span.center
-          //        a(href="https://facebook.com/gabe.conradi")
-          //          img.pull-left.img-circle.media-object.logo(src='/images/icons/facebook/facebook-64.png',rel="tooltip",title="Facebook")
-          //      .span.center
-          //        a(href="https://twitter.com/byxorna")
-          //          img.pull-left.img-circle.media-object.logo(src='/images/icons/twitter/twitter-64.png',rel="tooltip",title="Twitter")
-          //      .span.center
-          //        a(href="https://plus.google.com/109783898219372090528")
-          //          img.pull-left.img-circle.media-object.logo(src='/images/icons/googleplus/googleplus-64.png',rel="tooltip",title="Google+")
-          //      .span.center
-          //        a(href="https://github.com/byxorna")
-          //          img.pull-left.img-circle.media-object.logo(src='/images/icons/github/github-64.png',rel="tooltip",title="Github")
-          //      .span.center
-          //        a(href="https://youtube.com/byxornism")
-          //          img.pull-left.img-circle.media-object.logo(src='/images/icons/youtube/youtube-64.png',rel="tooltip",title="YouTube")
-          //      .span.center
-          //        a(href='http://www.last.fm/user/gummybearx')
-          //          img.pull-left.img-circle.media-object.logo(src='/images/icons/lastfm/lastfm-64.png',rel="tooltip",title="Last.fm")
-          //      .span.center
-          //        a(href="/resume")
-          //          img.pull-left.img-circle.media-object.logo(src='/images/icons/aboutme/aboutme-64.png',rel="tooltip",title="Resume")
-
-
+block append head
+  style
+    .spaced {
+      margin-left:20px;
+    }
