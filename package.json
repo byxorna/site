@@ -20,7 +20,8 @@
     "poet": "0.x",
     "moment": "1.7.x",
     "node-markdown": "0.1.x",
-    "resume": "git://github.com/byxorna/resume.git"
+    "resume": "git://github.com/byxorna/resume.git",
+    "rss": "0.0.x"
   },
   "author": "Gabe Conradi",
   "license": "Apache 2.0",
