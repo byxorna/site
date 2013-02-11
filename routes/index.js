@@ -25,7 +25,7 @@ exports.resume = function(req, res){
       });
       break;
     default:
-      res.send(404);
+      res.send(404,"Resume not available in that format");
       break;
   }
 };
