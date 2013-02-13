@@ -8,3 +8,5 @@ block content
           a.muted(href="/blog") < Back to the blog
       a.date.muted(data-alt-date="#{post.date.toString()}", title=post.date.toString()) #{moment(post.date).fromNow()}
     | !{post.content}
+    section
+      a.muted(href="/blog") < Back to the blog
