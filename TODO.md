@@ -5,4 +5,5 @@ TODO
 * add history support and back button support ala http://tumbledry.org/2011/05/12/screw_hashbangs_building
   * and this! http://diveintohtml5.info/history.html
 * make resume API that processes original format into .pdf or .doc
+  * predeploy hook in package.json? git?
 * get change to poet merged to expose options to middleware (postsPerPage)
