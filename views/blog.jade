@@ -98,6 +98,7 @@ block append head
         a(href!="<%= url %>")
           h1 <%= title %>
 
+        span.muted Posted 
         a.date.muted(data-alt-date!="<%= new Date(date).toString() %>", title!="<%= new Date(date).toString() %>") <%= moment(date).fromNow() %>
         div.snippet <%= preview %>
 
