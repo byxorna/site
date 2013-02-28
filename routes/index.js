@@ -5,7 +5,7 @@ var
 
 // home page
 exports.index = function(req, res){
-  res.render('index', { title: 'byxor.na' });
+  res.render('index', { title: 'Home' });
 };
 
 // about me
