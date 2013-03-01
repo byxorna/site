@@ -68,3 +68,8 @@ h1 small.vertical-center {
 .inline {
   display: inline;
 }
+
+.content-area {
+  padding-bottom: 9px;
+  margin: 20px 0 30px;
+}
