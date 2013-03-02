@@ -41,13 +41,15 @@ exports.rss = function(req, res){
 
 exports.blog_index = function(req, res){
   var fetch_size = req.poet.postsPerPage;
-  var from = req.query["from"]-0 || 0;
-  var to = (req.query["to"]-0)+1 || from + fetch_size;
+  var from = 0;
+  var to = from + fetch_size-1;
+  var posts = req.poet.getPosts(from, to+1);
   res.render('blog', {
     title: 'Blog',
-    posts: req.poet.getPosts(from, to),
+    posts: posts,
     from: from,
     to: to,
+    total_posts: req.poet.getPostCount(),
     fetch_size: fetch_size
   });
 };

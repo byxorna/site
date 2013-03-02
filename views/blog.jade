@@ -11,7 +11,7 @@ block content
     div
       h1.pagination-centered
         small
-          a#more-posts(href="#") Load more
+          a#more-posts(href="#")
 
 
 block append head
@@ -27,6 +27,7 @@ block append head
         from: #{from},
         to: #{to},
         fetch_size: #{fetch_size},
+        total_posts: #{total_posts},
         model: Post,
         url: function(){
           return '/api/blog/posts/' + this.from + '-' + this.to;
@@ -44,6 +45,7 @@ block append head
         // the view of all posts
         el: $('#posts'),
         post_count: $('#post-count'),
+        more_posts: $('#more-posts'),
         initialize: function(){
           this.listenTo(posts,'add',this.addPost);
         },
@@ -59,6 +61,14 @@ block append head
           var view = new PostView({model: post});
           this.$el.append(view.render().el);
           this.post_count.text("Latest " + posts.length + " posts");
+          console.log(posts.length, posts.total_posts);
+          if (posts.length >= posts.total_posts) {
+            this.more_posts.replaceWith('<span>No older posts found</span>');
+            this.post_count.text("All " + posts.length + " posts");
+          } else {
+            this.more_posts.text("Load more");
+          }
+
         }
       });
 
@@ -70,24 +80,16 @@ block append head
       console.log("setting to:" + posts.to + " and from:" + posts.from);
       $('#more-posts').on('click',function(){
         //get more posts
-        var collection_size = posts.length;
         var old_from = posts.from;
         var old_to = posts.to;
-        posts.from = posts.to;
-        posts.to = posts.from + posts.fetch_size;
+        posts.from = posts.to+1;
+        posts.to = Math.min(posts.total_posts, posts.from + posts.fetch_size - 1);
         console.log("setting to:" + posts.to + " and from:" + posts.from);
         posts.fetch({
-          update:true,
-          remove:false,
-          success:function(){
-            if (collection_size == posts.length){
-              $('#more-posts').replaceWith('<span>No older posts found</span>');
-              blog.post_count.text("All " + posts.length + " posts");
-            }
-          },
-          error:function(){
-            //TODO show an error
-          }
+          update:   true,
+          remove:   false,
+          success:  function(){ },
+          error:    function(){ }
         });
         return false;
       });
