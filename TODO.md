@@ -6,6 +6,7 @@ TODO
   * and this! http://diveintohtml5.info/history.html
 * make resume API that processes original format into .pdf or .doc
   * predeploy hook in package.json? git?
+  * use phantomjs to convert html->pdf, and markdown for md->html. https://github.com/ariya/phantomjs
 * get change to poet merged to expose options to middleware (postsPerPage)
 * make a link shortener?
 * make locations have an embedded google maps popup?
