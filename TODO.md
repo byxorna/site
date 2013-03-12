@@ -1,6 +1,8 @@
 TODO
 ----
 
+* implement a nice looking 404 page
+* implement a nice looking 500 page
 * use backbone router to support push/pop state for loading more blog posts
 * add history support and back button support ala http://tumbledry.org/2011/05/12/screw_hashbangs_building
   * and this! http://diveintohtml5.info/history.html

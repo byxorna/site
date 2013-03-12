@@ -24,6 +24,8 @@ exports.resume = function(req, res){
         res.render('resume', {title: 'Resume', resume: md.Markdown(resume_md)});
       });
       break;
+    case 'pdf':
+      res.send(404,"Resume not available in pdf (yet). Yell at me to finish https://github.com/byxorna/node-md2pdf");
     default:
       res.send(404,"Resume not available in that format");
       break;
