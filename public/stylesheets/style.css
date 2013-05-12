@@ -1,5 +1,6 @@
 body {
   font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  background: #f5f5f5; /* same color as footer background. enable infinite footer looks */
 }
 code,pre {
   font-family: "Droid Sans Mono", Monaco, Menlo, Consolas, "Courier New", monospace;
@@ -15,6 +16,10 @@ a:hover {
 
 a.date {
   cursor:pointer;
+}
+
+.site-foreground {
+  background: #ffffff;
 }
 
 .logo {

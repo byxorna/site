@@ -17,38 +17,39 @@ html
       script(src='/javascripts/application.js')
 
   body
-    header.navbar.navbar-fixed-top.navbar-inverse
-      div.navbar-inner
-        div.container
-          //a.btn.btn-navbar(data-toggle='collapse',data-target='.nav-collapse')
-          div.btn.btn-navbar(data-toggle='collapse',data-target='.nav-collapse')
-            span.icon-bar
-            span.icon-bar
-            span.icon-bar
-          a.brand(href='/') pipefail.com
-          div.nav-collapse.collapse
-            //ul.nav.pull-right
-            ul.nav.pull-right
-              //li.dropdown
-              //  a.dropdown-toggle(href='#',data-toggle='dropdown') Dropdown
-              //    b.caret
-              //  ul.dropdown-menu
-              li
-                a(href='/blog') Blog
-              li
-                a(href='/resume') Resume
-              li
-                a(href='/about') About
-    #navbar-buffer.visible-desktop(style='height:41px;')
+    .site-foreground
+      header.navbar.navbar-fixed-top.navbar-inverse
+        div.navbar-inner
+          div.container
+            //a.btn.btn-navbar(data-toggle='collapse',data-target='.nav-collapse')
+            div.btn.btn-navbar(data-toggle='collapse',data-target='.nav-collapse')
+              span.icon-bar
+              span.icon-bar
+              span.icon-bar
+            a.brand(href='/') pipefail.com
+            div.nav-collapse.collapse
+              //ul.nav.pull-right
+              ul.nav.pull-right
+                //li.dropdown
+                //  a.dropdown-toggle(href='#',data-toggle='dropdown') Dropdown
+                //    b.caret
+                //  ul.dropdown-menu
+                li
+                  a(href='/blog') Blog
+                li
+                  a(href='/resume') Resume
+                li
+                  a(href='/about') About
+      #navbar-buffer.visible-desktop(style='height:41px;')
 
-    div.content-area
-      block content
+      div.content-area
+        block content
 
-    footer
-      block footer
-        div.container
-          div.row
-            div.span2.offset5
-              p.muted.pagination-centered.
-                © Gabe Conradi 2013
+      footer
+        block footer
+          div.container
+            div.row
+              div.span2.offset5
+                p.muted.pagination-centered.
+                  © Gabe Conradi 2013
 
