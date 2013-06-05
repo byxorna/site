@@ -5,8 +5,8 @@ var rss_xml;
 var feed = new RSS({
   title: "Gabe Conradi's Blog",
   description: "Linux, cars, hacking, and complaining",
-  feed_url: "http://FIXME.com/blog/rss.xml",
-  site_url: "http://FIXME.com",
+  feed_url: "http://pipefail.com/blog/rss.xml",
+  site_url: "http://pipefail.com",
   author: "Gabe Conradi"
 });
 
