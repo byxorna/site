@@ -6,7 +6,7 @@ block content
       h1 Blog
         small.pull-right.vertical-center(style='margin-left:10px;')
           a.muted(href='/blog/rss.xml') RSS
-      p.muted#post-count
+      p.muted.uppercase#post-count
     div#posts
     div
       h1.pagination-centered
@@ -100,7 +100,7 @@ block append head
         a(href!="<%= url %>")
           h1 <%= title %>
 
-        span.muted Posted 
-        a.date.muted(data-alt-date!="<%= new Date(date).toString() %>", title!="<%= new Date(date).toString() %>") <%= moment(date).fromNow() %>
+        span.muted.uppercase Posted 
+        a.date.muted.uppercase(data-alt-date!="<%= new Date(date).toString() %>", title!="<%= new Date(date).toString() %>") <%= moment(date).fromNow() %>
         div.snippet <%= preview %>
 
