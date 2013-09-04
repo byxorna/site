@@ -41,6 +41,8 @@ Then, pass the serial port through to the Windows guest:
 
 <a href="http://imgur.com/YJpcTLh"><img src="http://i.imgur.com/YJpcTLh.png" /></a>
 
+NOTE: One issue that I encountered is that when plugging the Tactrix cable into EcuFlash for the first time in the VM, EcuFlash tried to update the firmware, and hung. I was unable to get the Tactrix to update its firmware in the VM, and resorted to plugging it into a real Windows computer to complete the flash. Once the OpenPort is updated, you will have to uninstall then reinstall EcuFlash and its drivers in the VM in order to get it recognized properly.
+
 Now RomRaider should be able to read your ECU and log correctly!
 
 
