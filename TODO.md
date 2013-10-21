@@ -14,3 +14,4 @@ TODO
 * make a link shortener?
 * make locations have an embedded google maps popup?
 * add link to generate a QR code for any page
+
