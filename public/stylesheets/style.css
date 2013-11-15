@@ -78,3 +78,7 @@ h1 small.vertical-center {
   padding-bottom: 9px;
   margin: 20px 0 30px;
 }
+
+.uppercase {
+  text-transform: uppercase;
+}
