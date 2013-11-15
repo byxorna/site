@@ -7,10 +7,21 @@ code,pre {
 }
 
 a {
-  color:#666;
+  /* trying colored links
+  color:#666; */
   text-decoration:none !important;
 }
+/*
+trying colored links
 a:hover {
+  color:#888;
+}
+*/
+
+a.muted {
+  color:#666;
+}
+a.muted:hover {
   color:#888;
 }
 
@@ -91,4 +102,8 @@ h1 small.vertical-center {
 }
 .pagination-centered {
   text-align: center;
+}
+
+.muted {
+  color: #999999;
 }
