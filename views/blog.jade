@@ -11,7 +11,7 @@ block content
     div
       h1.pagination-centered
         small
-          a#more-posts(href="#")
+          a.muted#more-posts(href="#")
 
 
 block append head
@@ -96,7 +96,7 @@ block append head
     });
   script(type='text/template')#post-template
     div.span12
-      a(href!="<%= url %>")
+      a.muted(href!="<%= url %>")
         h1 <%= title %>
 
       span.muted.uppercase Posted 
