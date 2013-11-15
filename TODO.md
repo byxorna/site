@@ -1,6 +1,9 @@
 TODO
 ----
 
+* bootstrap3
+  - reapply https://github.com/byxorna/site/commit/1d81dddedf0f2afcd732534908b1b4201dff6217#diff-ac44ada8920d468ca3fb810f5bb46dab
+
 * implement a nice looking 404 page
 * implement a nice looking 500 page
 * use backbone router to support push/pop state for loading more blog posts
