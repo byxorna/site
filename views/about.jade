@@ -2,7 +2,7 @@ extends layout
 
 block content
   div.container
-    div.row
+    div
       div.span12
         section#header
           div
@@ -12,19 +12,19 @@ block content
             | . Here is the rundown on me and my interests.
           div.pagination-centered  
             span.spaced
-              a(href='#tech-projects')
+              a.muted(href='#tech-projects')
                 h2.inline Tech
             span.spaced
-              a(href='#car-projects')
+              a.muted(href='#car-projects')
                 h2.inline Cars
             span.spaced
-              a(href='#music')
+              a.muted(href='#music')
                 h2.inline Music
             span.spaced
-              a(href='#this-site')
+              a.muted(href='#this-site')
                 h2.inline This site
             span.spaced
-              a(href='#contact')
+              a.muted(href='#contact')
                 h2.inline Contact
           
         section#tech-projects
@@ -47,79 +47,78 @@ block content
             |, and a handful of regional northeastern Subaru forums. I AutoX with FCSCC, have been known to make a pass down the quarter mile from time to time, and am planning on tracking my wagon at Lime Rock and once the build is complete.
 
           div.buffer
-          div.row
-            div.span6
-              h2 2004 Subaru GDA WRX 
-              h4.muted Daily Driver
-              p Tuned by Chris @ EFI Logics (RIP), to 297whp/254wtq at 20.5 psi. Heres a link to my 
-                a(href='http://www.efilogics.com/dyno/index.php?gb=0&hp=1&torque=1&boost=1&rpm=1&sl=1&sln=1&sat=0&cb=0&dgr=1&smm=0&sg=1&runid1=1600&rgb1=000000255') EFI Dyno Chart
-                |  There are 
-                i way
-                |  more mods on this car than listed, but this is the gist of it. 
-              h5 Parts list
-              ul
-                li Stock internals EJ205
-                li 750cc DeatschWerks topfeed injectors
-                li Walbro 255lph pump
-                li Blousch TD05H 16G-XT turbo, internally gated
-                li Xccelleration TMIC
-                li SPT short ram intake
-                li Invidia catless downpipe, full 3" exhaust
-                li Grimmspeed EBCS
-                li Sway bars, endlinks, mounts
-                li 215/55/16 Star Specs
-                li 04 STi struts, EPIC springs
-                li Grimmspeed phenolic spacers
-                li Custom boost actuated intercooler sprayer
-                li Custom ABS kill switch
-              a(href='http://www.efilogics.com/dyno/index.php?gb=0&hp=1&torque=1&boost=1&rpm=1&sl=1&sln=1&sat=0&cb=0&dgr=1&smm=0&sg=1&runid1=1600&rgb1=000000255')
-                img(src='/images/dyno_2004_wrx_16g.png')
-            div.span6
-              h2 2005 Subaru GGA WRX
-              h4.muted Track Beast
-              p I bought this rolling chassis in September of 2011 to keep my hands busy. I began accumulating parts slowly, with the eventual goal of making a badass track car. The project is still in progress, but hopefully it will be running in the spring of 2013. Shooting for 400-450 whp on 93 octane, hoping to get 30-40psi out of the turbo (pistons can take up to 50!).
-              h5 Parts list
-              ul
-                li R180, STi 6sp, Brembos and 5x114.3 hub conversion from an 05
-                li Aluminum lateral links and LCAs from an 06
-                li STi steering rack and crossmember from an 06
-                li Full Race twin scroll header with dual 38mm external wastegates
-                li Garrett GTX3076R 1.06a/r twinscroll turbo
-                li BC BR coilovers
-                li 24mm front+rear Whiteline sways and rear mount, Kartboy solid endlinks
-                li Every bushing that TiC and Kartboy makes for the STi
-                li RE070 225/45/17 right now (R comps soon)
-                li JDM v9 long runner intake manifold
-                li JDM v9 ECU
-                li Fuel system
-                  ul
-                    li 1100cc topfeed Fuel Injector Clinic injectors
-                    li 340lph Aeromotive fuel pump
-                    li Aeromotive FPR
-                    li Jegs fuel lines, distribution block, and AN fittings
-                li ACT 6 puck XT clutch with flywheel
-                li Koyo aluminum radiator
-                li Fuel rails from Outfront Motorsports with custom fuel rail spacers
-                li Engine
-                  ul
-                    li 07 EJ257 case, o-ringed Darton sleeves
-                    li 07 STi crankshaft
-                    li Ross custom pistons, forged for 50psi
-                    li Oliver rods
-                    li ARP rod, case, and main bolts
-                    li ARP 14mm custom helicoiled headstuds
-                    li ACL coated race bearings
-                    li JDM v7 2.0l heads, intake ports matched to manifold (338cfm intake, 241cfm exhaust)
-                    li Ferrea +1mm valves, TI locks, seats, retainers, springs
-                    li Custom Kelford 282/280 cams (no AVCS currently)
-                    li ATI Superdamper
-                    li Cometic headgaskets
-                    li 07 oil pump
-                    li Greddy timing belt
-                    li Killer B oil pan, windage tray, and oil pickup
-                li Perrin front mount intercooler
-                li Synapse Syncronic BPV
-                li KSTech 83mm cold air intake
+          div.span6
+            h2 2004 Subaru GDA WRX 
+            h4.muted Daily Driver
+            p Tuned by Chris @ EFI Logics (RIP), to 297whp/254wtq at 20.5 psi. Heres a link to my 
+              a(href='http://www.efilogics.com/dyno/index.php?gb=0&hp=1&torque=1&boost=1&rpm=1&sl=1&sln=1&sat=0&cb=0&dgr=1&smm=0&sg=1&runid1=1600&rgb1=000000255') EFI Dyno Chart
+              |  There are 
+              i way
+              |  more mods on this car than listed, but this is the gist of it. 
+            h5 Parts list
+            ul
+              li Stock internals EJ205
+              li 750cc DeatschWerks topfeed injectors
+              li Walbro 255lph pump
+              li Blousch TD05H 16G-XT turbo, internally gated
+              li Xccelleration TMIC
+              li SPT short ram intake
+              li Invidia catless downpipe, full 3" exhaust
+              li Grimmspeed EBCS
+              li Sway bars, endlinks, mounts
+              li 215/55/16 Star Specs
+              li 04 STi struts, EPIC springs
+              li Grimmspeed phenolic spacers
+              li Custom boost actuated intercooler sprayer
+              li Custom ABS kill switch
+            a(href='http://www.efilogics.com/dyno/index.php?gb=0&hp=1&torque=1&boost=1&rpm=1&sl=1&sln=1&sat=0&cb=0&dgr=1&smm=0&sg=1&runid1=1600&rgb1=000000255')
+              img(src='/images/dyno_2004_wrx_16g.png')
+          div.span6
+            h2 2005 Subaru GGA WRX
+            h4.muted Track Beast
+            p I bought this rolling chassis in September of 2011 to keep my hands busy. I began accumulating parts slowly, with the eventual goal of making a badass track car. The project is still in progress, but hopefully it will be running in the spring of 2013. Shooting for 400-450 whp on 93 octane, hoping to get 30-40psi out of the turbo (pistons can take up to 50!).
+            h5 Parts list
+            ul
+              li R180, STi 6sp, Brembos and 5x114.3 hub conversion from an 05
+              li Aluminum lateral links and LCAs from an 06
+              li STi steering rack and crossmember from an 06
+              li Full Race twin scroll header with dual 38mm external wastegates
+              li Garrett GTX3076R 1.06a/r twinscroll turbo
+              li BC BR coilovers
+              li 24mm front+rear Whiteline sways and rear mount, Kartboy solid endlinks
+              li Every bushing that TiC and Kartboy makes for the STi
+              li RE070 225/45/17 right now (R comps soon)
+              li JDM v9 long runner intake manifold
+              li JDM v9 ECU
+              li Fuel system
+                ul
+                  li 1100cc topfeed Fuel Injector Clinic injectors
+                  li 340lph Aeromotive fuel pump
+                  li Aeromotive FPR
+                  li Jegs fuel lines, distribution block, and AN fittings
+              li ACT 6 puck XT clutch with flywheel
+              li Koyo aluminum radiator
+              li Fuel rails from Outfront Motorsports with custom fuel rail spacers
+              li Engine
+                ul
+                  li 07 EJ257 case, o-ringed Darton sleeves
+                  li 07 STi crankshaft
+                  li Ross custom pistons, forged for 50psi
+                  li Oliver rods
+                  li ARP rod, case, and main bolts
+                  li ARP 14mm custom helicoiled headstuds
+                  li ACL coated race bearings
+                  li JDM v7 2.0l heads, intake ports matched to manifold (338cfm intake, 241cfm exhaust)
+                  li Ferrea +1mm valves, TI locks, seats, retainers, springs
+                  li Custom Kelford 282/280 cams (no AVCS currently)
+                  li ATI Superdamper
+                  li Cometic headgaskets
+                  li 07 oil pump
+                  li Greddy timing belt
+                  li Killer B oil pan, windage tray, and oil pickup
+              li Perrin front mount intercooler
+              li Synapse Syncronic BPV
+              li KSTech 83mm cold air intake
 
         section#music
           div.page-header

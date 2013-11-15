@@ -11,7 +11,7 @@ block content
     div
       h1.pagination-centered
         small
-          a#more-posts(href="#")
+          a.muted#more-posts(href="#")
 
 
 block append head
@@ -95,12 +95,11 @@ block append head
       });
     });
   script(type='text/template')#post-template
-    div.row
-      div.span12
-        a(href!="<%= url %>")
-          h1 <%= title %>
+    div.span12
+      a.muted(href!="<%= url %>")
+        h1 <%= title %>
 
-        span.muted.uppercase Posted 
-        a.date.muted.uppercase(data-alt-date!="<%= new Date(date).toString() %>", title!="<%= new Date(date).toString() %>") <%= moment(date).fromNow() %>
-        div.snippet <%= preview %>
+      span.muted.uppercase Posted 
+      a.date.muted.uppercase(data-alt-date!="<%= new Date(date).toString() %>", title!="<%= new Date(date).toString() %>") <%= moment(date).fromNow() %>
+      div.snippet <%= preview %>
 
