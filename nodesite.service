@@ -1,0 +1,13 @@
+[Unit]
+Description=byxorna's personal website
+After=network.target
+
+[Service]
+Type=simple
+WorkingDirectory=/srv/www/nodesite
+User=nginx
+ExecStart=/usr/bin/npm start
+
+[Install]
+WantedBy=multi-user.target
+
