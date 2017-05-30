@@ -11,28 +11,10 @@ block content
             a(href="/resume") resume
             | , or click the round things below.
 
-        hr.buffer
-        section#contact
-          div.pagination-centered
-            p
-              a(href="http://tumblr.pipefail.com", target='_blank')
-                img.img-circle.media-object.logo(src='/images/icons/tumblr/tumblr-64.png',rel="tooltip",title="Tumblr")
-              a(href="https://github.com/byxorna", target='_blank')
-                img.img-circle.media-object.logo(src='/images/icons/github/github-64.png',rel="tooltip",title="Github")
-              a(href="/resume")
-                img.img-circle.media-object.logo(src='/images/icons/aboutme/aboutme-64.png',rel="tooltip",title="Resume")
-              a(href="https://twitter.com/byxorna", target='_blank')
-                img.img-circle.media-object.logo(src='/images/icons/twitter/twitter-64.png',rel="tooltip",title="Twitter")
-              a(href="https://youtube.com/byxornism", target='_blank')
-                img.img-circle.media-object.logo(src='/images/icons/youtube/youtube-64.png',rel="tooltip",title="YouTube")
-              a(href='http://www.last.fm/user/gummybearx', taget='_blank')
-                img.img-circle.media-object.logo(src='/images/icons/lastfm/lastfm-64.png',rel="tooltip",title="Last.fm")
+        include contact
 
 block append head
   style
     .spaced {
       margin-left:20px;
-    }
-    section#header {
-      padding-top:0px; /* dont leave excess white space at the top of the page */
     }
