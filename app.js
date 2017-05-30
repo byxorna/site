@@ -52,6 +52,7 @@ function setupRoutes(opts){
   // User facing routes (html)
   app.get('/', page.index);
   app.get('/about', page.about);
+  app.get('/consulting', page.consulting);
   app.get('/projects', page.projects);
   app.get('/resume.:format?', page.resume);
   app.get('/blog', blog.blog_index);      // the main blog page, shows list of blog posts (html)

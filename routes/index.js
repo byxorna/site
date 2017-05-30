@@ -13,6 +13,10 @@ exports.about = function(req, res){
   res.render('about', {title: 'About'});
 };
 
+exports.consulting = function(req, res){
+  res.render('consulting', {title: 'Consulting Services'});
+};
+
 // resume listing
 exports.resume = function(req, res){
   var format = req.params.format || 'html';
