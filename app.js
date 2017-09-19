@@ -19,6 +19,7 @@ app.use(express.methodOverride());
 app.use(poet.middleware());
 app.use(app.router);
 app.use(express.static(path.join(__dirname, 'public')));
+app.use('/keybase.txt', express.static(path.join(__dirname, 'public/keybase.txt')));
 
 app.configure('development', function(){
   app.use(express.errorHandler());

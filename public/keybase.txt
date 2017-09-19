@@ -1,0 +1,55 @@
+==================================================================
+https://keybase.io/gabeconradi
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://pipefail.com
+  * I am gabeconradi (https://keybase.io/gabeconradi) on keybase.
+  * I have a public key ASB3K8mVdSg8DLetAqpcjO3QxVYQgFDXVMcp6vcHL_TcFwo
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "012021aa06af166caf78b1d931116747037847ab8f104f413326e4c552f455305c6e0a",
+      "host": "keybase.io",
+      "kid": "0120772bc99575283c0cb7ad02aa5c8cedd0c556108050d754c729eaf7072ff4dc170a",
+      "uid": "53a3997a54391d26d6e311506cdb3519",
+      "username": "gabeconradi"
+    },
+    "merkle_root": {
+      "ctime": 1505782512,
+      "hash": "abd06ba8a25b62a24e47e98beb9d8fd96f6ed98427f1699acc2ec7ee8887b3371dd53b036fa6757439ce8aecb131278a44fd16de781cc3ab5ed80a5e3c93f307",
+      "hash_meta": "a81f746949d1e9406b0f36e3b4dbb95ae490f5c7cf93db7242e64d83ae6e1415",
+      "seqno": 1403811
+    },
+    "service": {
+      "hostname": "pipefail.com",
+      "protocol": "https:"
+    },
+    "type": "web_service_binding",
+    "version": 1
+  },
+  "client": {
+    "name": "keybase.io go client",
+    "version": "1.0.31"
+  },
+  "ctime": 1505782592,
+  "expire_in": 504576000,
+  "prev": "f14de790d4ea87aefcbd9c2ae203eb9f1e33b68fd4941bbe062ce0614ca957f7",
+  "seqno": 14,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+hKRib2R5hqhkZXRhY2hlZMOpaGFzaF90eXBlCqNrZXnEIwEgdyvJlXUoPAy3rQKqXIzt0MVWEIBQ11THKer3By/03BcKp3BheWxvYWTFA0h7ImJvZHkiOnsia2V5Ijp7ImVsZGVzdF9raWQiOiIwMTIwMjFhYTA2YWYxNjZjYWY3OGIxZDkzMTExNjc0NzAzNzg0N2FiOGYxMDRmNDEzMzI2ZTRjNTUyZjQ1NTMwNWM2ZTBhIiwiaG9zdCI6ImtleWJhc2UuaW8iLCJraWQiOiIwMTIwNzcyYmM5OTU3NTI4M2MwY2I3YWQwMmFhNWM4Y2VkZDBjNTU2MTA4MDUwZDc1NGM3MjllYWY3MDcyZmY0ZGMxNzBhIiwidWlkIjoiNTNhMzk5N2E1NDM5MWQyNmQ2ZTMxMTUwNmNkYjM1MTkiLCJ1c2VybmFtZSI6ImdhYmVjb25yYWRpIn0sIm1lcmtsZV9yb290Ijp7ImN0aW1lIjoxNTA1NzgyNTEyLCJoYXNoIjoiYWJkMDZiYThhMjViNjJhMjRlNDdlOThiZWI5ZDhmZDk2ZjZlZDk4NDI3ZjE2OTlhY2MyZWM3ZWU4ODg3YjMzNzFkZDUzYjAzNmZhNjc1NzQzOWNlOGFlY2IxMzEyNzhhNDRmZDE2ZGU3ODFjYzNhYjVlZDgwYTVlM2M5M2YzMDciLCJoYXNoX21ldGEiOiJhODFmNzQ2OTQ5ZDFlOTQwNmIwZjM2ZTNiNGRiYjk1YWU0OTBmNWM3Y2Y5M2RiNzI0MmU2NGQ4M2FlNmUxNDE1Iiwic2Vxbm8iOjE0MDM4MTF9LCJzZXJ2aWNlIjp7Imhvc3RuYW1lIjoicGlwZWZhaWwuY29tIiwicHJvdG9jb2wiOiJodHRwczoifSwidHlwZSI6IndlYl9zZXJ2aWNlX2JpbmRpbmciLCJ2ZXJzaW9uIjoxfSwiY2xpZW50Ijp7Im5hbWUiOiJrZXliYXNlLmlvIGdvIGNsaWVudCIsInZlcnNpb24iOiIxLjAuMzEifSwiY3RpbWUiOjE1MDU3ODI1OTIsImV4cGlyZV9pbiI6NTA0NTc2MDAwLCJwcmV2IjoiZjE0ZGU3OTBkNGVhODdhZWZjYmQ5YzJhZTIwM2ViOWYxZTMzYjY4ZmQ0OTQxYmJlMDYyY2UwNjE0Y2E5NTdmNyIsInNlcW5vIjoxNCwidGFnIjoic2lnbmF0dXJlIn2jc2lnxED+IgymOFVu1wLU86gGgmUgthivBaZPHPlA/ULwgSIhDjIZlkqR0l/Tyg+oDythZevYnEjk8Y89/Q8APfgwMKAPqHNpZ190eXBlIKRoYXNogqR0eXBlCKV2YWx1ZcQgKLGV7LaavBMJ2go7h4Id0XExcrbQLap+4PXqsKDSGi+jdGFnzQICp3ZlcnNpb24B
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/gabeconradi
+
+==================================================================
