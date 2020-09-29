@@ -1,5 +1,5 @@
-FROM node:7.2.0
-MAINTAINER Gabe Conradi <gummybearx@gmail.com>
+FROM node:13.10
+MAINTAINER Gabe Conradi <gabe.conradi@gmail.com>
 
 COPY . /app
 WORKDIR /app
