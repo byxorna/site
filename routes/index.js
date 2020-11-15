@@ -29,7 +29,13 @@ exports.resume = function(req, res){
       });
       break;
     case 'pdf':
-      res.send(404,"Resume not available in pdf (yet). Yell at me to finish https://github.com/byxorna/node-md2pdf");
+      var file = fs.createReadStream('./node_modules/resume/resume.pdf');
+      var stat = fs.statSync('./node_modules/resume/resume.pdf');
+      res.setHeader('Content-Length', stat.size);
+      res.setHeader('Content-Type', 'application/pdf');
+      res.setHeader('Content-Disposition', 'attachment; filename=Gabe Conradi Resume.pdf');
+      file.pipe(res);
+      break;
     default:
       res.send(404,"Resume not available in that format");
       break;

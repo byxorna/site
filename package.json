@@ -2,10 +2,7 @@
   "name": "pipefail.com",
   "version": "0.0.2",
   "description": "Gabe Conradi's website",
-  "engines": {
-    "node": "0.8.x",
-    "npm": "1.1.x"
-  },
+  "engines": {},
   "scripts": {
     "start": "node ./app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -17,12 +14,12 @@
   "dependencies": {
     "express": "3.x",
     "jade": "0.x",
-    "underscore": "1.x",
-    "poet": "0.x",
     "moment": "1.7.x",
     "node-markdown": "0.1.x",
+    "poet": "0.x",
     "resume": "git://github.com/byxorna/resume.git",
-    "rss": "0.0.x"
+    "rss": "0.0.x",
+    "underscore": "1.x"
   },
   "author": "Gabe Conradi",
   "license": "Apache 2.0",
