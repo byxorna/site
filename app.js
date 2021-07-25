@@ -1,6 +1,6 @@
 
 var express = require('express')
-  http = require('http'),
+http = require('http'),
   path = require('path'),
   app = express(),
   poet = require('poet')(app),
@@ -14,20 +14,16 @@ app.set('views', __dirname + '/views');
 app.set('view engine', 'jade');
 app.use(express.favicon());
 app.use(express.logger('dev'));
-app.use(express.bodyParser());
-app.use(express.methodOverride());
+app.use(require('method-override')());
 app.use(poet.middleware());
 app.use(app.router);
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/keybase.txt', express.static(path.join(__dirname, 'public/keybase.txt')));
 
-app.configure('development', function(){
+if (app.get('env') == 'development') {
   app.use(express.errorHandler());
-});
+}
 
-//TODO this is ghetto, but i dont know how to get poet's postsPerPage
-// to be exposed in its middleware. remove when https://github.com/jsantell/poet/pull/10
-// is merged in
 var postsPerPage = 5;
 poet.set({
   posts: './posts',
@@ -37,17 +33,15 @@ poet.set({
     page: '/blog[?page=:page]'
   }
 })
-  .init(function(locals){
+  .init(function (locals) {
     // expose postsPerPage thru middleware for proper pagination
     locals["postsPerPage"] = postsPerPage;
-    //locals.postList.forEach(function(post) { });
-    //console.log("Poet initialized");
     setupRoutes({
-      poet_locals:locals
-    }); // perform app setup after poet is done initializing
+      poet_locals: locals
+    });
   });
 
-function setupRoutes(opts){
+function setupRoutes(opts) {
   // set up application
   blog = require('./routes/blog')(opts.poet_locals);
   // User facing routes (html)
@@ -66,7 +60,7 @@ function setupRoutes(opts){
   app.get('/api/blog/posts/:from-:to', blog_api.posts);
   app.get('/api/blog/posts/:from', blog_api.posts);
 
-  http.createServer(app).listen(app.get('port'), function(){
+  http.createServer(app).listen(app.get('port'), function () {
     console.log("Express server listening on port " + app.get('port'));
   });
 }
