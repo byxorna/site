@@ -29,6 +29,7 @@ var (
 		Short: fmt.Sprintf("embedded http server for pipefail.com (%s %s %s)", version.Commit, version.Commit, version.Date),
 		Args:  cobra.MaximumNArgs(0),
 		RunE: func(cmd *cobra.Command, args []string) error {
+			logger.Infow("launching site", "version", version.Version, "commit", version.Commit, "build_date", version.Date)
 			if flags.pprofPort > 0 {
 				logger.Infow("Listening for pprof", "port", flags.pprofPort)
 				go http.ListenAndServe(fmt.Sprintf(":%d", flags.pprofPort), nil)
@@ -39,8 +40,8 @@ var (
 )
 
 func init() {
-	root.Flags().Int64("pprof-port", 6060, "pprof http listening port")
-	root.Flags().Int64("http-port", 8000, "http listening port")
+	root.Flags().IntVar(&flags.pprofPort, "pprof-port", 6060, "pprof http listening port")
+	root.Flags().IntVar(&flags.httpPort, "http-port", 8000, "http listening port")
 }
 
 func main() {
@@ -79,7 +80,7 @@ func runHttpServer() error {
 			template.Execute(w, data)
 		})
 	*/
-	logger.Infow("serving HTTP", "port", flags.httpPort, "version", version.Version, "commit", version.Commit, "build_date", version.Date)
+	logger.Infow("serving HTTP", "port", flags.httpPort)
 	err := http.ListenAndServe(fmt.Sprintf(":%d", flags.httpPort), middlewareifiedRouter)
 
 	return err
@@ -104,11 +105,17 @@ func handleTemplateRoute(mux http.Handler, templateName string, templateFilename
 		}
 
 		data := struct {
-			Title string
-			Now   time.Time
+			Title   string
+			Now     time.Time
+			Commit  string
+			Version string
+			Built   string
 		}{
-			Title: templateName,
-			Now:   time.Now().Local(),
+			Title:   templateName,
+			Now:     time.Now().Local(),
+			Commit:  version.Commit,
+			Version: version.Version,
+			Built:   version.Date,
 		}
 
 		template.Execute(w, data)
