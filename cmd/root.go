@@ -11,6 +11,12 @@ import (
 	_ "expvar"
 	_ "net/http/pprof"
 
+	"github.com/yuin/goldmark"
+	"github.com/yuin/goldmark/extension"
+	"github.com/yuin/goldmark/parser"
+	"github.com/yuin/goldmark/renderer/html"
+
+	"github.com/byxorna/resume"
 	"github.com/byxorna/site"
 	"github.com/byxorna/site/pkg/log"
 	"github.com/byxorna/site/pkg/version"
@@ -18,8 +24,20 @@ import (
 )
 
 var (
-	logger = log.New("test")
-	flags  = struct {
+	logger = log.New("site")
+
+	md = goldmark.New(
+		goldmark.WithExtensions(extension.GFM),
+		goldmark.WithParserOptions(
+			parser.WithAutoHeadingID(),
+		),
+		goldmark.WithRendererOptions(
+			html.WithHardWraps(),
+			html.WithXHTML(),
+		),
+	)
+
+	flags = struct {
 		pprofPort int
 		httpPort  int
 	}{}
@@ -55,78 +73,79 @@ func main() {
 func runHttpServer() error {
 	publicFS := http.FileServer(http.FS(site.PublicFS))
 
+	// load all templates
+	tmpl, err := template.New("").ParseFS(site.TemplatesFS, "templates/*.html")
+	if err != nil {
+		return err
+	}
+
+	// load resume and convert to something useful
+	var resumeHtmlBytes bytes.Buffer
+	if err := md.Convert([]byte(resume.ResumeMarkdown), &resumeHtmlBytes); err != nil {
+		return fmt.Errorf("unable to convert resume into HTML: %w", err)
+	}
+	resumeHtml := template.HTML(resumeHtmlBytes.String())
+
 	loggingMiddleware := log.Middleware(logger)
 	router := http.NewServeMux()
 	router.Handle("/public/", publicFS)
-	router.HandleFunc("/", handleTemplateRoute("Pipefail", "index.html"))
+	router.HandleFunc("/", templateRoute(tmpl, "Pipefail", "index.html", nil))
+	router.HandleFunc("/about", templateRoute(tmpl, "About", "about.html", nil))
+	router.HandleFunc("/consulting", templateRoute(tmpl, "Consulting", "consulting.html", nil))
+	router.HandleFunc("/resume", templateRoute(tmpl, "Resume - Gabe Conradi", "resume.html", &resumeHtml))
+	router.HandleFunc("/resume.pdf",
+		servePDF(fmt.Sprintf("Gabe Conradi - Resume (%d).pdf", time.Now().Unix()), resume.ResumePDF))
+
 	middlewareifiedRouter := loggingMiddleware(router)
-	/*
-		mux.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-			w.WriteHeader(200)
-			template, err := template.New("index").Parse(indexTemplate)
 
-			if err != nil {
-				w.WriteHeader(500)
-				return
-			}
-
-			data := struct {
-				Title          string
-				WelcomeMessage string
-			}{
-				Title:          getTranslationString(lang, "title"),
-				WelcomeMessage: getTranslationString(lang, "welcome_message"),
-			}
-
-			template.Execute(w, data)
-		})
-	*/
 	logger.Infow("serving HTTP", "port", flags.httpPort)
-	err := http.ListenAndServe(fmt.Sprintf(":%d", flags.httpPort), middlewareifiedRouter)
-
-	return err
+	return http.ListenAndServe(fmt.Sprintf(":%d", flags.httpPort), middlewareifiedRouter)
 }
 
-func handleTemplateRoute(templateName string, templateFilename string) func(w http.ResponseWriter, r *http.Request) {
+func servePDF(filename string, bytes []byte) func(w http.ResponseWriter, r *http.Request) {
 	return func(w http.ResponseWriter, r *http.Request) {
+		w.Header().Add("content-type", "application/pdf")
+		w.Header().Add("content-disposition", fmt.Sprintf("attachment; filename=%s", filename))
+		w.Header().Add("content-length", fmt.Sprintf("%d", len(bytes)))
+		w.WriteHeader(200)
+		w.Write(bytes)
+	}
+}
 
-		tmpl, err := site.TemplatesFS.ReadFile(templateFilename)
-		if err != nil {
-			logger.Errorw("unable to load template", "template", templateFilename, "error", err.Error())
-			w.WriteHeader(500)
-			return
-		}
-
-		template, err := template.New(templateName).Parse(string(tmpl))
-
-		if err != nil {
-			w.WriteHeader(500)
-			return
-		}
+func templateRoute(tmpl *template.Template, title string, templateName string, extraHTML *template.HTML) func(w http.ResponseWriter, r *http.Request) {
+	return func(w http.ResponseWriter, r *http.Request) {
+		// so this is sus, but in order to do all our templating without writing to the request until
+		logger.Infow("handling tmpl request", "name", templateName)
+		// we know whether the render was successful, we use `sb` to write the body to.
+		sb := bytes.NewBuffer([]byte{})
 
 		data := struct {
-			Title   string
-			Now     time.Time
-			Commit  string
-			Version string
-			Built   string
+			Title     string
+			Now       time.Time
+			Commit    string
+			Version   string
+			Built     string
+			ExtraHTML *template.HTML
+			Year      string
 		}{
-			Title:   templateName,
-			Now:     time.Now().Local(),
-			Commit:  version.Commit,
-			Version: version.Version,
-			Built:   version.Date,
+			Title:     title,
+			Now:       time.Now().Local(),
+			Commit:    version.Commit,
+			Version:   version.Version,
+			Built:     version.Date,
+			ExtraHTML: extraHTML,
+			Year:      time.Now().Local().Format("2006"),
 		}
 
-		sb := bytes.NewBuffer([]byte{})
-		err = template.Execute(sb, data)
+		err := tmpl.ExecuteTemplate(sb, templateName, data)
 		if err != nil {
 			// TODO: we cant change header after writing body... :thinking:
+			//w.Header().Add("content-type", "application/json")
 			w.WriteHeader(500)
-			w.Header().Add("content-type", "application/json")
 			logger.Errorw("failed to render template", "err", err.Error())
-			w.Write([]byte(fmt.Sprintf(`{"error": "%s", "status": 500}`, err.Error())))
+			w.Write([]byte(fmt.Sprintf(`error %s, status: 500`, err.Error())))
 		} else {
+			w.Header().Add("content-type", "text/html")
 			w.WriteHeader(200)
 			w.Write([]byte(sb.String()))
 		}

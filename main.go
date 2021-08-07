@@ -10,4 +10,9 @@ var (
 
 	//go:embed templates/*
 	TemplatesFS embed.FS
+
+	//go:embed templates/header.html
+	HeaderTemplate string
+	//go:embed templates/footer.html
+	FooterTemplate string
 )

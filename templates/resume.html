@@ -1,0 +1,13 @@
+{{ template "header" . }}
+
+<div class="container">
+  <div id="resume">
+    <p class="muted pagination-right pull-right">
+      <a href="/resume">HTML</a> | <a href="/resume.pdf">PDF</a> | <a
+        href="https://github.com/byxorna/resume/blob/master/resume.md">SRC</a>
+    </p>
+    {{.ExtraHTML}}
+  </div>
+</div>
+
+{{ template "footer" . }}

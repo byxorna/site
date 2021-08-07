@@ -1,0 +1,22 @@
+{{ template "header" . }}
+<div class="container">
+  <div>
+    <div class="col-md-12">
+      <section id="header">
+        <div>
+          <h1 style="margin-bottom:30px">I'm Gabe</h1>
+        </div>
+        <p class="lead">I do computer-y things with Linux, distributed systems, web-scale infrastructure, and more.
+          Currently preparing for the Singularity. In the mean time, look at my <a href="/resume">resume</a>, or find
+          more contact information below.</p>
+        {{ template "contact" . }}
+      </section>
+    </div>
+  </div>
+</div>
+<style>
+  .spaced {
+    margin-left: 20px;
+  }
+</style>
+{{ template "footer" . }}
