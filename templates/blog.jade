@@ -1,0 +1,105 @@
+extends layout
+
+block content
+  .container
+    #page-title
+      h1 Blog
+        small.pull-right.vertical-center(style='margin-left:10px;')
+          a.muted(href='/blog/rss.xml') RSS
+      p.muted.uppercase#post-count
+    div#posts
+    div
+      h1.pagination-centered
+        small
+          a.muted#more-posts(href="#")
+
+
+block append head
+  style
+    #page-title {
+      margin-bottom:30px;
+      border-bottom:1px solid #eeeeee;
+    }
+  script
+    $(function(){
+      var Post = Backbone.Model.extend({});
+      var Posts = Backbone.Collection.extend({
+        from: #{from},
+        to: #{to},
+        fetch_size: #{fetch_size},
+        total_posts: #{total_posts},
+        model: Post,
+        url: function(){
+          return '/api/blog/posts/' + this.from + '-' + this.to;
+        }
+      });
+      var PostView = Backbone.View.extend({
+        // an individual post view
+        template: _.template($('#post-template').html()),
+        render: function(){
+          this.$el.html(this.template(this.model.attributes));
+          return this;
+        }
+      });
+      var PostsView = Backbone.View.extend({
+        // the view of all posts
+        el: $('#posts'),
+        post_count: $('#post-count'),
+        more_posts: $('#more-posts'),
+        initialize: function(){
+          this.listenTo(posts,'add',this.addPost);
+        },
+        render: function(){
+          this.$el.html('');
+          posts.each(function(post){
+            this.addPost(post);
+          },this);
+          return this;
+        },
+        addPost: function(post){
+          // append the post to our view
+          var view = new PostView({model: post});
+          this.$el.append(view.render().el);
+          this.post_count.text("Latest " + posts.length + " posts");
+          console.log(posts.length, posts.total_posts);
+          if (posts.length >= posts.total_posts) {
+            this.more_posts.replaceWith('<span>No older posts found</span>');
+            this.post_count.text("All " + posts.length + " posts");
+          } else {
+            this.more_posts.text("Load more");
+          }
+
+        }
+      });
+
+      var posts = new Posts(!{JSON.stringify(posts)});  //bootstrap in our collection
+
+      var blog = new PostsView();
+      blog.render();
+
+      console.log("setting to:" + posts.to + " and from:" + posts.from);
+      $('#more-posts').on('click',function(){
+        //get more posts
+        var old_from = posts.from;
+        var old_to = posts.to;
+        posts.from = posts.to+1;
+        posts.to = Math.min(posts.total_posts, posts.from + posts.fetch_size - 1);
+        console.log("setting to:" + posts.to + " and from:" + posts.from);
+        posts.fetch({
+          update:   true,
+          remove:   false,
+          success:  function(){ },
+          error:    function(){ }
+        });
+        return false;
+      });
+    });
+  script(type='text/template')#post-template
+    div.col-md-12
+      a.muted(href!="<%= url %>")
+        h1 <%= title %>
+
+      span.muted.uppercase Posted 
+      a.date.muted.uppercase(data-alt-date!="<%= new Date(date).toString() %>", title!="<%= new Date(date).toString() %>") <%= moment(date).fromNow() %>
+      div.snippet <%= preview %>
+

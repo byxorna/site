@@ -1,0 +1,13 @@
+extends layout
+
+block content
+  .container
+    .page-header(style='margin-top:0;')
+      h1 #{post.title}
+        small.muted.pull-right.vertical-center
+          a.muted(href="/blog") < Back to the blog
+      span.muted.uppercase Posted 
+      a.date.muted.uppercase(data-alt-date="#{post.date.toString()}", title=post.date.toString()) #{moment(post.date).fromNow()}
+    | !{post.content}
+    section
+      a.muted(href="/blog") < Back to the blog

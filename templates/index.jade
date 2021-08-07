@@ -1,0 +1,17 @@
+extends layout
+
+block content
+  .container
+    section#lead
+      .pagination-centered
+        h1#lead-text Hi, I'm Gabe
+        h2.muted
+          a.muted(href="/about") Check me out
+    include contact
+
+block append head
+  style.
+    #lead-text {
+      line-height:80px;
+      font-size:80px;
+    }
