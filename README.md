@@ -1,20 +1,15 @@
 site
 ====
 
-Personal website to play around with new technologies. You can check out the live site at [http://pipefail.com](http://pipefail.com).
-
-Requirements
-============
-
-See package.json
+Personal website to play around with new technologies. You can check out the live site at [pipefail.com](https://pipefail.com).
 
 Usage
 =====
 
-Install dependencies
+Build
 
-    npm install
+    make # or make docker
 
 Launch
 
-    node ./app.js
+    make dev # or bin/site
