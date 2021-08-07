@@ -1,9 +1,12 @@
-FROM node:13.10
-MAINTAINER Gabe Conradi <gabe.conradi@gmail.com>
+FROM golang:1.16-buster AS build
 
-COPY . /app
-WORKDIR /app
-RUN npm install
-ENTRYPOINT PORT=3000 npm start
-EXPOSE 3000
+WORKDIR /go/src/app
+COPY . .
 
+RUN make
+
+FROM debian:buster-slim
+
+COPY --from=build /go/src/app/bin/site /site
+
+ENTRYPOINT ["/site"]

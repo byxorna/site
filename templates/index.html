@@ -1,0 +1,17 @@
+{{ template "header" . }}
+<div class="container">
+  <section id="lead">
+    <div class="pagination-centered">
+      <h1 id="lead-text">Hi, I'm Gabe</h1>
+      <h2 class="muted"><a class="muted" href="/about">Check me out</a></h2>
+      {{ template "contact" .}}
+    </div>
+  </section>
+</div>
+<style>
+  #lead-text {
+    line-height: 80px;
+    font-size: 80px;
+  }
+</style>
+{{ template "footer" . }}
