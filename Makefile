@@ -20,6 +20,9 @@ test: build
 dev: build
 	@bin/site
 	
+docker:
+	docker build -t byxorna/site:$(git_tag) .
+
 pprof-heap: build
 	go tool pprof http://localhost:6060/debug/pprof/heap
 
