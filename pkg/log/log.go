@@ -5,7 +5,6 @@ package log
 
 import (
 	"net/http"
-	"runtime/debug"
 	"time"
 
 	"go.uber.org/zap"
@@ -25,14 +24,14 @@ func Middleware(logger *zap.SugaredLogger) func(http.Handler) http.Handler {
 			defer func() {
 				if err := recover(); err != nil {
 					w.WriteHeader(http.StatusInternalServerError)
-					logger.Errorw("error caught", "err", err, "trace", debug.Stack())
+					logger.Errorw("error caught", "err", err)
 				}
 			}()
 
 			start := time.Now()
 			wrapped := wrapResponseWriter(w)
 			next.ServeHTTP(wrapped, r)
-			logger.Infow(
+			logger.Infow("http response",
 				"status", wrapped.status,
 				"method", r.Method,
 				"path", r.URL.EscapedPath(),

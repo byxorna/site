@@ -1,11 +1,11 @@
 package main
 
 import (
+	"bytes"
 	"fmt"
 	"html/template"
 	"net/http"
 	"os"
-	"runtime/debug"
 	"time"
 
 	_ "expvar"
@@ -58,6 +58,7 @@ func runHttpServer() error {
 	loggingMiddleware := log.Middleware(logger)
 	router := http.NewServeMux()
 	router.Handle("/public/", publicFS)
+	router.HandleFunc("/", handleTemplateRoute("Pipefail", "index.html"))
 	middlewareifiedRouter := loggingMiddleware(router)
 	/*
 		mux.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
@@ -86,13 +87,12 @@ func runHttpServer() error {
 	return err
 }
 
-func handleTemplateRoute(mux http.Handler, templateName string, templateFilename string) func(w http.ResponseWriter, r *http.Request) {
+func handleTemplateRoute(templateName string, templateFilename string) func(w http.ResponseWriter, r *http.Request) {
 	return func(w http.ResponseWriter, r *http.Request) {
-		w.WriteHeader(200)
 
 		tmpl, err := site.TemplatesFS.ReadFile(templateFilename)
 		if err != nil {
-			logger.Errorw("unable to load template", "template", templateFilename, "error", err.Error(), "trace", debug.Stack())
+			logger.Errorw("unable to load template", "template", templateFilename, "error", err.Error())
 			w.WriteHeader(500)
 			return
 		}
@@ -118,6 +118,17 @@ func handleTemplateRoute(mux http.Handler, templateName string, templateFilename
 			Built:   version.Date,
 		}
 
-		template.Execute(w, data)
+		sb := bytes.NewBuffer([]byte{})
+		err = template.Execute(sb, data)
+		if err != nil {
+			// TODO: we cant change header after writing body... :thinking:
+			w.WriteHeader(500)
+			w.Header().Add("content-type", "application/json")
+			logger.Errorw("failed to render template", "err", err.Error())
+			w.Write([]byte(fmt.Sprintf(`{"error": "%s", "status": 500}`, err.Error())))
+		} else {
+			w.WriteHeader(200)
+			w.Write([]byte(sb.String()))
+		}
 	}
 }
