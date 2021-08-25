@@ -6,6 +6,7 @@ import (
 	"html/template"
 	"net/http"
 	"os"
+	"path"
 	"time"
 
 	_ "expvar"
@@ -89,6 +90,7 @@ func runHttpServer() error {
 	loggingMiddleware := log.Middleware(logger)
 	router := http.NewServeMux()
 	router.Handle("/public/", publicFS)
+	router.HandleFunc("/keybase.txt", publicRedirect)
 	router.HandleFunc("/", templateRoute(tmpl, "Pipefail", "index.html", nil))
 	router.HandleFunc("/about", templateRoute(tmpl, "About", "about.html", nil))
 	router.HandleFunc("/consulting", templateRoute(tmpl, "Consulting", "consulting.html", nil))
@@ -100,6 +102,10 @@ func runHttpServer() error {
 
 	logger.Infow("serving HTTP", "port", flags.httpPort)
 	return http.ListenAndServe(fmt.Sprintf(":%d", flags.httpPort), middlewareifiedRouter)
+}
+
+func publicRedirect(w http.ResponseWriter, r *http.Request) {
+	http.Redirect(w, r, path.Join("/public", r.URL.Path), 301)
 }
 
 func servePDF(filename string, bytes []byte) func(w http.ResponseWriter, r *http.Request) {
