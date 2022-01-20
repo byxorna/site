@@ -93,6 +93,7 @@ func runHttpServer() error {
 	router.HandleFunc("/keybase.txt", publicRedirect)
 	router.HandleFunc("/", templateRoute(tmpl, "Pipefail", "index.html", nil))
 	router.HandleFunc("/about", templateRoute(tmpl, "About", "about.html", nil))
+	router.HandleFunc("/contact", templateRoute(tmpl, "Contact", "contact.html", nil))
 	router.HandleFunc("/consulting", templateRoute(tmpl, "Consulting", "consulting.html", nil))
 	router.HandleFunc("/resume", templateRoute(tmpl, "Resume - Gabe Conradi", "resume.html", &resumeHtml))
 	router.HandleFunc("/resume.pdf",

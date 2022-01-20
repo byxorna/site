@@ -1,13 +1,31 @@
-{{ define "contact" }}
-<section id="contact">
-  <div class="pagination-centered">
-    <hr class="buffer" />
-    <p class="muted lead">
-      <a class="muted" href="http://tumblr.pipefail.com">Tumblr</a> - <a class="muted"
-        href="https://github.com/byxorna">GitHub</a> - <a class="muted" href="https://twitter.com/byxorna">Twitter</a>
-      - <a class="muted" href="https://keybase.io/gabeconradi">Keybase</a> - <a class="muted" href="/resume">Resume</a>
-      - <a class="muted" href="/consulting">Consulting</a>
-    </p>
+{{ template "header" . }}
+
+<div class="container">
+  <div>
+    <div class="col-md-12">
+      <section id="lead">
+        <div class="pagination-centered">
+
+          <div>
+            <h1 style="margin-bottom:30px">Contact</h1>
+          </div>
+          <h2 class="muted"><a class="muted" href="/resume">Resume</a></h2>
+          <h2 class="muted"><a class="muted" href="/consulting">Consulting</a></h2>
+          <h2 class="muted"><a target="_blank" class="muted external" href="https://github.com/byxorna">GitHub</a></h2>
+          <h2 class="muted"><a target="_blank" class="muted external" href="https://tumblr.pipefail.com">Tumblr</a></h2>
+          <h2 class="muted"><a target="_blank" class="muted external" href="https://keybase.io/gabeconradi">Keybase</a>
+          </h2>
+          <h2 class="muted"><a class="muted"
+              href="mailto:gabe.conradi+consulting@gmail.com?Subject=Consulting%20Request">Email</a></h2>
+        </div>
+      </section>
+    </div>
   </div>
-</section>
-{{ end }}
+</div>
+<style>
+  .spaced {
+    margin-left: 20px;
+  }
+</style>
+
+{{ template "footer" . }}
