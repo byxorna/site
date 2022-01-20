@@ -1,9 +1,20 @@
 site
 ====
 
-Personal website to play around with new technologies. You can check out the live site at [pipefail.com](https://pipefail.com).
+Gabe Conradi's personal website ([pipefail.com](https://pipefail.com))
 
-Usage
+Releases
+========
+
+Releases are built automatically (see [/releases](/releases)), with both binaries and docker images.
+
+- [Docker Hub: byxorna/site](https://hub.docker.com/repository/docker/byxorna/site)
+
+```
+$ docker run -p 8000:8000 byxorna/site:latest
+```
+
+Hacking
 =====
 
 Build
