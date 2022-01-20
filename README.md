@@ -6,7 +6,7 @@ Gabe Conradi's personal website ([pipefail.com](https://pipefail.com))
 Releases
 ========
 
-Releases are built automatically (see [/releases](/releases)), with both binaries and docker images.
+Releases are built automatically (see [/releases](https://github.com/byxorna/site/releases)), with both binaries and docker images.
 
 - [Docker Hub: byxorna/site](https://hub.docker.com/repository/docker/byxorna/site)
 
