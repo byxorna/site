@@ -7,7 +7,10 @@ pkg := $(shell go list -m)
 
 all: build
 
-.PHONY: build dev
+.PHONY: build dev clean
+
+clean:
+	rm bin/site || :
 
 build:
 	go build -o bin/$(NAME) \
