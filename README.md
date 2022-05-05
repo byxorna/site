@@ -1,12 +1,10 @@
-site
-====
+# site
 
 Gabe Conradi's personal website ([pipefail.com](https://pipefail.com))
 
-Releases
-========
+## Releases
 
-Releases are built automatically (see [/releases](https://github.com/byxorna/site/releases)), with both binaries and docker images.
+Releases are built automatically from tags (see [/releases](https://github.com/byxorna/site/releases)), with both binaries and docker images.
 
 - [Docker Hub: byxorna/site](https://hub.docker.com/repository/docker/byxorna/site)
 
@@ -14,8 +12,11 @@ Releases are built automatically (see [/releases](https://github.com/byxorna/sit
 $ docker run -p 8000:8000 byxorna/site:latest
 ```
 
-Updating Resume
-===============
+### Create new release
+
+
+
+## Updating Resume
 
 The resume is sourced from [byxorna/resume](https://github.com/byxorna/resume). To pull in the latest copy:
 
@@ -23,13 +24,16 @@ The resume is sourced from [byxorna/resume](https://github.com/byxorna/resume). 
 $ make update-resume
 ```
 
-Hacking
-=====
+## Hacking
 
-Build
+Build the site:
 
-    make # or make docker
+```
+$ make
+```
 
-Launch
+Run a dev server:
 
-    make dev # or bin/site
+```
+$ make dev
+```
