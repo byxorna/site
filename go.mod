@@ -3,7 +3,7 @@ module github.com/byxorna/site
 go 1.16
 
 require (
-	github.com/byxorna/resume v0.0.0-20210807193005-61d2f6161c1a
+	github.com/byxorna/resume v0.0.0-20220505153635-a6c230bef0db
 	github.com/pkg/errors v0.9.1 // indirect
 	github.com/spf13/cobra v1.2.1
 	github.com/yuin/goldmark v1.4.0

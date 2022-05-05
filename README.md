@@ -14,6 +14,15 @@ Releases are built automatically (see [/releases](https://github.com/byxorna/sit
 $ docker run -p 8000:8000 byxorna/site:latest
 ```
 
+Updating Resume
+===============
+
+The resume is sourced from [byxorna/resume](https://github.com/byxorna/resume). To pull in the latest copy:
+
+```
+$ make update-resume
+```
+
 Hacking
 =====
 

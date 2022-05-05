@@ -35,3 +35,9 @@ pprof-allocs: build
 pprof-profile: build
 	curl -o profile.pprof http://localhost:6060/debug/pprof/profile?seconds=5
 	go tool pprof profile.pprof
+
+update-resume:
+	go get github.com/byxorna/resume
+	git diff go.mod
+	git add go.mod go.sum
+	# git commit -m "update resume"
