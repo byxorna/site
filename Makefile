@@ -41,3 +41,6 @@ update-resume:
 	git diff go.mod
 	git add go.mod go.sum
 	# git commit -m "update resume"
+
+deploy-site:
+	# ssh pipefail.com sudo systemctl restart site

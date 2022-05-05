@@ -47,10 +47,10 @@ github.com/benbjohnson/clock v1.1.0 h1:Q92kusRqC1XV2MjkWETPvjJVqKetz1OzxZB7mHJLj
 github.com/benbjohnson/clock v1.1.0/go.mod h1:J11/hYXuz8f4ySSvYwY0FKfm+ezbsZBKZxNJlLklBHA=
 github.com/bgentry/speakeasy v0.1.0/go.mod h1:+zsyZBPWlz7T6j88CTgSN5bM796AkVf0kBD4zp0CCIs=
 github.com/bketelsen/crypt v0.0.4/go.mod h1:aI6NrJ0pMGgvZKL1iVgXLnfIFJtfV+bKCoqOes/6LfM=
-github.com/byxorna/resume v0.0.0-20210807193005-61d2f6161c1a h1:btG4vDp0W5tH9qkAvKESmQqkkXc9fBrMg3Q2v910Csc=
-github.com/byxorna/resume v0.0.0-20210807193005-61d2f6161c1a/go.mod h1:13nktnHqIv5arrzQWoyDhasOW2mapZrNvrXBcNKA1vU=
 github.com/byxorna/resume v0.0.0-20220505153635-a6c230bef0db h1:UZ/Sy29cwuDnTOK98pbq+DfM183NdUwvfePP8UxyTA0=
 github.com/byxorna/resume v0.0.0-20220505153635-a6c230bef0db/go.mod h1:13nktnHqIv5arrzQWoyDhasOW2mapZrNvrXBcNKA1vU=
+github.com/byxorna/resume v0.0.0-20220505160411-c11b8ecec9e3 h1:2PZoVSMXA/5yFKtCTeJr8u+WYCSTmm0RHdCnyARizCk=
+github.com/byxorna/resume v0.0.0-20220505160411-c11b8ecec9e3/go.mod h1:13nktnHqIv5arrzQWoyDhasOW2mapZrNvrXBcNKA1vU=
 github.com/census-instrumentation/opencensus-proto v0.2.1/go.mod h1:f6KPmirojxKA12rnyqOA5BBL4O983OfeGPqjHWSTneU=
 github.com/chzyer/logex v1.1.10/go.mod h1:+Ywpsq7O8HXn0nuIou7OrIPyXbp3wmkHB+jjWRnGsAI=
 github.com/chzyer/readline v0.0.0-20180603132655-2972be24d48e/go.mod h1:nSuG5e5PlCu98SY8svDHJxuZscDgtXS6KTTbou5AhLI=

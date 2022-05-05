@@ -37,3 +37,7 @@ Run a dev server:
 ```
 $ make dev
 ```
+
+# Docs
+
+[pkg.go.dev/github.com/byxorna/site](https://pkg.go.dev/github.com/byxorna/site)
