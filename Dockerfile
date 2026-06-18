@@ -1,11 +1,11 @@
-FROM golang:1.16-buster AS build
+FROM golang:1.26 AS build
 
 WORKDIR /go/src/app
 COPY . .
 
 RUN make
 
-FROM debian:buster-slim
+FROM debian:bookworm-slim
 
 COPY --from=build /go/src/app/bin/site /site
 
