@@ -1,9 +1,12 @@
-FROM golang:1.26 AS build
+FROM --platform=$BUILDPLATFORM golang:1.26 AS build
+
+ARG TARGETOS
+ARG TARGETARCH
 
 WORKDIR /go/src/app
 COPY . .
 
-RUN make
+RUN GOOS=$TARGETOS GOARCH=$TARGETARCH make
 
 FROM debian:bookworm-slim
 

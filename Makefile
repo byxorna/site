@@ -13,7 +13,7 @@ clean:
 	rm bin/site || :
 
 build:
-	go build -o bin/$(NAME) \
+	CGO_ENABLED=0 go build -o bin/$(NAME) \
 		-ldflags "-X '$(pkg)/pkg/version.Commit=$(git_commit)' -X '$(pkg)/pkg/version.Date=$(date)' -X '$(pkg)/pkg/version.Version=$(git_tag)'" \
 		$(PACKAGE)/cmd
 
@@ -24,7 +24,7 @@ dev: build
 	@bin/site
 	
 docker:
-	docker build -t byxorna/site:$(git_tag) .
+	docker buildx build --platform linux/amd64,linux/arm64 -t byxorna/site:$(git_tag) .
 
 pprof-heap: build
 	go tool pprof http://localhost:6060/debug/pprof/heap
