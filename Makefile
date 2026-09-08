@@ -37,10 +37,9 @@ pprof-profile: build
 	go tool pprof profile.pprof
 
 update-resume:
-	go get github.com/byxorna/resume
+	GONOSUMCHECK=github.com/byxorna/resume go get github.com/byxorna/resume@main
 	git diff go.mod
 	git add go.mod go.sum
-	# git commit -m "update resume"
 
 deploy-site:
 	# ssh pipefail.com sudo systemctl restart site

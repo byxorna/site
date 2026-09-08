@@ -49,6 +49,10 @@ github.com/bgentry/speakeasy v0.1.0/go.mod h1:+zsyZBPWlz7T6j88CTgSN5bM796AkVf0kB
 github.com/bketelsen/crypt v0.0.4/go.mod h1:aI6NrJ0pMGgvZKL1iVgXLnfIFJtfV+bKCoqOes/6LfM=
 github.com/byxorna/resume v0.0.0-20230801223524-4c7751f94718 h1:Bza50qr9RUwfSc/TX3gPsuByEj6DalTHk+eTNNnXhD4=
 github.com/byxorna/resume v0.0.0-20230801223524-4c7751f94718/go.mod h1:13nktnHqIv5arrzQWoyDhasOW2mapZrNvrXBcNKA1vU=
+github.com/byxorna/resume v0.0.0-20260908143828-772749005e4b h1:KcZeLZ+fyPWPwX63O2wVIcaS7mW5Vae78XCoPIJXrbQ=
+github.com/byxorna/resume v0.0.0-20260908143828-772749005e4b/go.mod h1:13nktnHqIv5arrzQWoyDhasOW2mapZrNvrXBcNKA1vU=
+github.com/byxorna/resume v0.0.0-20260908145731-6ec3780ca641 h1:38x4WG6vFA1OP2kzYeGGgxlikW7h+vseMun2Tzzj+Os=
+github.com/byxorna/resume v0.0.0-20260908145731-6ec3780ca641/go.mod h1:13nktnHqIv5arrzQWoyDhasOW2mapZrNvrXBcNKA1vU=
 github.com/census-instrumentation/opencensus-proto v0.2.1/go.mod h1:f6KPmirojxKA12rnyqOA5BBL4O983OfeGPqjHWSTneU=
 github.com/chzyer/logex v1.1.10/go.mod h1:+Ywpsq7O8HXn0nuIou7OrIPyXbp3wmkHB+jjWRnGsAI=
 github.com/chzyer/readline v0.0.0-20180603132655-2972be24d48e/go.mod h1:nSuG5e5PlCu98SY8svDHJxuZscDgtXS6KTTbou5AhLI=

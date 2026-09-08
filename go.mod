@@ -3,7 +3,7 @@ module github.com/byxorna/site
 go 1.26.4
 
 require (
-	github.com/byxorna/resume v0.0.0-20230801223524-4c7751f94718
+	github.com/byxorna/resume v0.0.0-20260908145731-6ec3780ca641
 	github.com/spf13/cobra v1.10.2
 	github.com/yuin/goldmark v1.8.2
 	go.uber.org/zap v1.28.0
