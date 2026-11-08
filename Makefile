@@ -1,5 +1,6 @@
 NAME := site
 PACKAGE := $(shell go list .)
+CONTAINER_TOOL ?= podman
 git_commit := $(shell git rev-parse HEAD)
 git_tag := $(shell git describe --tags --always HEAD)
 date := $(shell date)
@@ -23,8 +24,8 @@ test: build
 dev: build
 	@bin/site
 	
-docker:
-	docker buildx build --platform linux/amd64,linux/arm64 -t byxorna/site:$(git_tag) .
+image:
+	$(CONTAINER_TOOL) build --platform linux/amd64,linux/arm64 -t byxorna/site:$(git_tag) .
 
 pprof-heap: build
 	go tool pprof http://localhost:6060/debug/pprof/heap
